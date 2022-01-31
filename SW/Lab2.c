@@ -130,7 +130,7 @@ uint32_t jitterVariable;    // global variable to calculate jitter
  * @brief main0 runs the TExaS oscilloscope
  *        analog scope on PD3, PD2, PE2 or PB5 using ADC1
  */
-int main0(void) {
+int main(void) {
     DisableInterrupts();
     TExaS_Init(SCOPE);  // connect analog input to PD3
     LaunchPad_Init();
