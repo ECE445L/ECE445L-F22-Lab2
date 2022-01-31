@@ -1,95 +1,84 @@
 /**
- * @file      Dump.h
- * @brief     A set of debugging functions to be used in other labs.
- * @details   Two debugging instruments<br>
- 1) Debug_Capture will record data and time<br>
- 2) Jitter_Measure will measure real time jitter<br>
- * @version   Spring 2022
- * @author    Put your name here
- * @copyright none
- * @warning   AS-IS
- * @note      For more information see  http://users.ece.utexas.edu/~valvano/
- * @date      January 24, 2022
+ * @file Dump.h
+ * @author your name (you@domain.com), Jonathan Valvano, Matthew Yu
+ *    <TA NAME and LAB SECTION # HERE>
+ * @brief 
+ *    A set of debugging functions that capture data for later inspection.
+ *    There are two primary methods:
+ *       - DebugCapture will record data and time.
+ *       - JitterMeasure will measure real time jitter.
+ * @version 0.1
+ * @date 2022-01-31 <REPLACE WITH DATE OF LAST REVISION>
+ *
+ * @copyright Copyright (c) 2022
  */
-#ifndef __DUMP_H__ // do not include more than once
-#define __DUMP_H__
+#pragma once
+
+/** File includes. */
 #include <stdint.h>
-/**
- * \brief DUMPBUFSIZE of the dump buffers 
- */
+
 #define DUMPBUFSIZE 300
 
 /**
- * @details Initialize debugging dump
- * @details Can hold 0 to DUMPBUFSIZE-1 elements. Each element is 32-bit data and 32-bit time.
- * @param  none
- * @return none
- * @brief  Initialize dump
+ * @brief DumpInit initializes the debugging dump.
+ * 
+ * @note Holds 0 up to DUMPBUFSIZE-1 elements. Each element is 32-bit data and
+ *       32-bit time.
  */
-void Dump_Init(void);
+void DumpInit(void);
 
 /**
- * @details Dump 32-bit data into array. Records time and data.<br>
- * Reads TIMER1_TAR_R to get current 32-bit time 
- * @param  data is the value to record
- * @return none
- * @brief  Minimally intrusive dump
+ * @brief DumpCapture dumps a 32-bit unsigned integer into the array. Records
+ *        time and data. Reads TIMER1_TAR_R to get the current 32-bit time.
+ * 
+ * @param data The data to be captured at TIMER1_TAR_R time.
+ * @note This should be minimally intrusive.
  */
-void Dump_Capture(uint32_t data);
+void DumpCapture(uint32_t data);
 
 /**
- * @details How many elements are currently stored?
- * Returns DUMPBUFSIZE-1 if arrays are full
- * @param  none
- * @return a value from 0 to DUMPBUFSIZE-1
- * @brief  Current size of the buffers
+ * @brief DumpCount returns how many elements are currently stored.
+ * 
+ * @return uint32_t A value from 0 to DUMPBUFSIZE-1.
  */
-uint32_t Dump_Count(void);
+uint32_t DumpCount(void);
 
 /**
- * @details Look at debug data
- * @param  none
- * @return a pointer to the debug data buffer
- * @brief  Access debug data
+ * @brief Allows users to look at debug data.
+ * 
+ * @return uint32_t* Pointer to the current debug data buffer.
  */
-uint32_t* Dump_Data(void);
+uint32_t* DumpData(void);
 
 /**
- * @details Look at debug times
- * @param  none
- * @return a pointer to the debug time buffer
- * @brief  Access debug time
+ * @brief Allows users to look at debug times.
+ * 
+ * @return uint32_t* Pointer to the current debug time buffer.
  */
-uint32_t* Dump_Time(void);
+uint32_t* DumpTime(void);
  
 /**
- * @details Initialize jitter recordings to determine if task is real time
- * @details Assumption: Jitter_Measure is called from a periodic real-time task.
- * Assumption: the period is fixed 
- * @param  none
- * @return none
- * @brief  Initialize jitter measurements
+ * @brief JitterInit initializes jitter recordings to determine if task is real
+ *        time.
+ * 
+ * @note Assume that JitterMeasure is called from a periodic real-time task.
  */
-void Jitter_Init(void);
+void JitterInit(void);
 
 /**
- * @details maintains maximum and minimum elasped times.<br>
- * First time called, Jitter_Measure just measures current time. <br>
- * Subsequent times called, Jitter_Measure measures the elapsed time from previous call
- * @param  none
- * @return none
- * @brief  measure jitter
+ * @brief Measures jitter. Maintains the maximum and minimum elapsed times.
+ * 
+ * @note The first time called, JitterMeasure just measures current time. On
+ *       subsequent calls, JitterMeasure measures the elapsed time from the
+ *       previous call. 
  */
-void Jitter_Measure(void);
+void JitterMeasure(void);
 
 /**
- * @details return maximum minus minimum elasped times.<br>
- * Result is the worst case from calling Jitter_Init to now. <br>
- * There is no error if this returns 0
- * @param  none
- * @return difference between maximum and minimum elasped times
- * @brief  returns time jitter
+ * @brief JitterGet returns the maximum minus minimum elapsed time. The result
+ *        is the worst case from calling JitterInit to now. There is no error if
+ *        this returns 0.
+ * 
+ * @return uint32_t The difference between maximum and minimum elapsed times.
  */
-uint32_t Jitter_Get(void);
-
-#endif
+uint32_t JitterGet(void);
