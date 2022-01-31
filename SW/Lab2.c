@@ -135,7 +135,7 @@ int main1(void) {
     
     DumpInit();
     LaunchPad_Init();
-    Timer2A_Init(&RealTimeTask, REALTIMEPERIOD, 2);  // PF3 toggle at about 1kHz
+    Timer2A_Init(&realTimeTask, REALTIMEPERIOD, 2);  // PF3 toggle at about 1kHz
     
     ST7735_FillScreen(0);                            // set screen to black
     ST7735_SetCursor(0, 0);
@@ -174,7 +174,7 @@ int main2(void) {
 
     DumpInit();
     LaunchPad_Init();
-    Timer2A_Init(&RealTimeTask, REALTIMEPERIOD, 2);  // PF3 toggle at about 1kHz
+    Timer2A_Init(&realTimeTask, REALTIMEPERIOD, 2);  // PF3 toggle at about 1kHz
 
     ST7735_FillScreen(0);                            // set screen to black
     ST7735_SetCursor(0, 0);
@@ -219,9 +219,9 @@ int main3(void) {
     timeBuf = DumpTime();
 
     LaunchPad_Init();
-    Timer2A_Init(&RealTimeTask, REALTIMEPERIOD, 2);     // PF3 toggle at about 1kHz
+    Timer2A_Init(&realTimeTask, REALTIMEPERIOD, 2);     // PF3 toggle at about 1kHz
     ADC0_InitSWTriggerSeq3(1);                          // Feel free to use any analog channel
-    Timer0A_Init(&RealTimeSampling, ADCSAMPPERIOD, 1);  // set up Timer0A for 100 Hz interrupts
+    Timer0A_Init(&realTimeSampling, ADCSAMPPERIOD, 1);  // set up Timer0A for 100 Hz interrupts
     sac = 0;
     ST7735_OutString("Lab 2 PMF, SAC=");
     ST7735_OutUDec(sac);
@@ -322,9 +322,9 @@ int main4(void) {
     timeBuf = DumpTime();
 
     LaunchPad_Init();
-    Timer2A_Init(&RealTimeTask, REALTIMEPERIOD, 2);     // PF3 toggle at about 1kHz
+    Timer2A_Init(&realTimeTask, REALTIMEPERIOD, 2);     // PF3 toggle at about 1kHz
     ADC0_InitSWTriggerSeq3(1);                          // Feel free to use any analog channel
-    Timer0A_Init(&RealTimeSampling, ADCSAMPPERIOD, 1);  // set up Timer0A for 100 Hz interrupts
+    Timer0A_Init(&realTimeSampling, ADCSAMPPERIOD, 1);  // set up Timer0A for 100 Hz interrupts
 
     sac = 0;
     ST7735_OutString("Lab 2 PMF, SAC=");
