@@ -1,9 +1,9 @@
 /**
- * @file Lab1.c
+ * @file Lab2.c
  * @author your name (you@domain.com), Jonathan Valvano, Matthew Yu
  *    <TA NAME and LAB SECTION # HERE>
  * @brief
- *    Possible main program to test Lab 1.
+ *    Possible main program to test Lab 2.
  *    Feel free to edit this to match your specifications.
  *
  *    For this lab, the student must implement four functions:
@@ -26,15 +26,42 @@
  *    RESET (pin 3) connected to PA7 (GPIO)
  *    VCC (pin 2) connected to +3.3 V
  *    Gnd (pin 1) connected to ground
+ * 
+ *    Center of 10k-ohm potentiometer connected to PE2/AIN1
+ *    Bottom of 10k-ohm potentiometer connected to ground
+ *    Top of 10k-ohm potentiometer connected to +3.3V 
+ */
+
+/* This example accompanies the book
+   "Embedded Systems: Real Time Interfacing to Arm Cortex M Microcontrollers",
+   ISBN: 978-1463590154, Jonathan Valvano, copyright (c) 2021
+
+ Copyright 2022 by Jonathan W. Valvano, valvano@mail.utexas.edu
+    You may use, edit, run or distribute this file
+    as long as the above copyright notice remains
+ THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+ OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+ VALVANO SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL,
+ OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+ For more information about my classes, my research, and my books, see
+ http://users.ece.utexas.edu/~valvano/
  */
 
 /** File includes. */
 #include <stdio.h>
 #include <stdint.h>
-#include "./inc/ST7735.h"
-#include "./inc/PLL.h"
+#include <math.h>
+#include "./inc/ADCSWTrigger.h"
 #include "./inc/tm4c123gh6pm.h"
-#include "./fixed.h"
+#include "./inc/PLL.h"
+#include "./inc/Timer0A.h"
+#include "./inc/Timer2A.h"
+#include "./inc/ST7735.h"
+#include "./inc/CortexM.h"
+#include "./inc/LaunchPad.h"
+#include "./inc/Dump.h"
+#include "./inc/TExaS.h"
 
 
 /** MMAP Pin definitions. */
