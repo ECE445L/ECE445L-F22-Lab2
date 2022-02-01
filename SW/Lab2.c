@@ -6,7 +6,7 @@
  *    Possible main program to test Lab 2.
  *    Feel free to edit this to match your specifications.
  *
- *    For this lab, the student must implement the following functions defined
+ *    For this lab, the student must implement the following functions defined 
  *    in Dump.h: 
  *        - DumpInit
  *        - DumpCapture
@@ -16,6 +16,7 @@
  *        - JitterInit
  *        - JitterMeasure
  *        - JitterGet
+ *     Feel free to modify the functions in this file as necessary.
  * 
  * @version 0.1
  * @date 2022-01-19 <REPLACE WITH DATE OF LAST REVISION>
@@ -83,10 +84,37 @@
 #define FIXED 100
 
 /** Function declarations. */
+
+/**
+ * @brief realTimeTask measures the jitter at a frequency of 1024 Hz
+ *        runs from Timer2A ISR
+ */
 void realTimeTask(void);
+
+/** @brief pause waits for a button press and release. */
 void pause(void);
+
+/**
+ * @brief realTimeSampling gets a value from the ADC and dumps it into a buffer.
+ *        frequency of 125 Hz runs from Timer0A ISR.
+ */
 void realTimeSampling(void);
+
+/**
+ * @brief standardDeviation returns the standard deviation of a buffer of
+ *        uint32_t values.
+ * 
+ * @param buffer The buffer to get the STD from.
+ * @param size The size of the buffer.
+ * @return uint32_t STD.
+ */
 uint32_t standardDeviation(uint32_t buffer[], uint32_t size);
+
+/**
+ * @brief printStandardDeviation outputs the standard deviation to the ST7735
+ * 
+ * @param sigma 
+ */
 void printStandardDeviation(uint32_t sigma);
 
 /** Global variables. */
@@ -101,29 +129,23 @@ uint32_t jitterVariable;    // global variable to calculate jitter
 /**
  * @brief main0 runs the TExaS oscilloscope
  *        analog scope on PD3, PD2, PE2 or PB5 using ADC1
- * 
- * @return int 
  */
-int main0(void) {
+int main(void) {
     DisableInterrupts();
     TExaS_Init(SCOPE);  // connect analog input to PD3
     LaunchPad_Init();
     uint32_t count = 0;
     EnableInterrupts();
-    while (1) {
+    while(1) {
         ++count;
-        if (count > 10000000) {
+        if(count > 10000000) {
             PF1 ^= 0x02;  // toggle slowly
             count = 0;
         }
     }
 }
 
-/**
- * @brief main1: study jitter with a real logic analyzer
- * 
- * @return int 
- */
+/** @brief main1: study jitter with a real logic analyzer */
 int main1(void) {
     int line = 1;
     DisableInterrupts();
@@ -150,7 +172,7 @@ int main1(void) {
             jitterVariable = (jitterVariable * 12345678) / 1234567;  // the divide instruction causes jitter
         }
         ST7735_SetCursor(0, line);
-        ST7735_OutString("Jitter =           ");
+        ST7735_OutString("Jitter = ");
         ST7735_SetCursor(9, line);
         ST7735_OutUDec(JitterGet());
         line = (line + 1) % 15;
@@ -160,8 +182,6 @@ int main1(void) {
 /**
  * @brief main2: study jitter with TExaS
  *        run TExaSdisplay on the PC in logic analyzer mode
- * 
- * @return int 
  */
 int main2(void) {
     int line = 1;
@@ -192,7 +212,7 @@ int main2(void) {
         }
 
         ST7735_SetCursor(0, line);
-        ST7735_OutString("Jitter =           ");
+        ST7735_OutString("Jitter = ");
         ST7735_SetCursor(9, line);
         ST7735_OutUDec(JitterGet());
         line = (line + 1) % 15;
@@ -201,8 +221,6 @@ int main2(void) {
 
 /**
  * @brief main3: study jitter (central limit theorem) with real logic analyzer
- * 
- * @return int 
  */
 int main3(void) {
     uint32_t i, d, data, time, sac;
@@ -305,8 +323,6 @@ int main3(void) {
 /**
  * @brief main4: study jitter (central limit theorem) with TExaS
  *        run TExaSdisplay on the PC in logic analyzer mode
- * 
- * @return int 
  */
 int main4(void) {
     uint32_t i, d, data, time, sac;
@@ -412,12 +428,6 @@ int main4(void) {
 }
 
 /** Function Implementations. */
-
-/**
- * @brief measures the jitter at a frequency of 1024 Hz
- *        runs from Timer2A ISR
- * 
- */
 void realTimeTask(void) {
     PF3 ^= 0x08;
     PF3 ^= 0x08;
@@ -426,20 +436,11 @@ void realTimeTask(void) {
     PF3 ^= 0x08;
 }
 
-/**
- * @brief wait for button press
- * 
- */
 void pause(void) {
     LaunchPad_WaitForTouch();
     LaunchPad_WaitForRelease();
 }
 
-/**
- * @brief gets value from ADC and dumps it into a buffer as a frequency of 125 Hz
- *        runs from Timer0A ISR
- * 
- */
 void realTimeSampling(void) {
     uint32_t ADCvalue;
     PF2 ^= 0x04;  // profile
@@ -449,13 +450,6 @@ void realTimeSampling(void) {
     PF2 ^= 0x04;  // profile
 }
 
-/**
- * @brief returns the standard deviation of a buffer of uint32_t values
- * 
- * @param buffer 
- * @param size 
- * @return uint32_t 
- */
 uint32_t standardDeviation(uint32_t buffer[], uint32_t size) {
     int32_t sum = 0;
     for (int i = 0; i < size; ++i) {
@@ -470,11 +464,6 @@ uint32_t standardDeviation(uint32_t buffer[], uint32_t size) {
     return sqrt(sum / (size - 1));  // units 1/FIXED
 }
 
-/**
- * @brief outputs standard deviation to the ST7735
- * 
- * @param sigma 
- */
 void printStandardDeviation(uint32_t sigma) {
     ST7735_SetCursor(0, 3);
     ST7735_OutString("s = ");
@@ -489,5 +478,3 @@ void printStandardDeviation(uint32_t sigma) {
         n = n / 10;
     }
 }
-
-
