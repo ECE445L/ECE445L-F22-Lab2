@@ -1,6 +1,6 @@
 # Lab 2 Performance Debugging
 
-Table of Contents
+## Table of Contents
 1. [Summary](#summary)
 2. [Preparation](#preparation)
     1. [Questions](#questions)
