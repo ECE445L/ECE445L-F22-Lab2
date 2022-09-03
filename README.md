@@ -64,7 +64,6 @@ In this lab we will develop debugging techniques to experience fundamental conce
 0x00000DA0 491D      LDR     r1,[pc,#116] ; @0x00000E18
 0x00000DA2 6088      STR     r0,[r1,#0x08]
 ```
-
 </td>
 <td>
 
@@ -72,7 +71,6 @@ In this lab we will develop debugging techniques to experience fundamental conce
 while (RealTimeCount < 3000) {
     PF1 ^= 0x02;
 ```
-
 </td>
 </tr>
 <tr>
