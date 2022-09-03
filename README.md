@@ -254,7 +254,7 @@ The data in Figure 2.6 were collected with SAC=6. Conversely if the input were i
 
 *Figure 2.6. Probability mass function measured on the TM4C123 ADC with 64-point averaging.*
 
-###### Deliverable 8
+##### Deliverable 8
 Estimate your ADC resolution with SAC=4 (16-point averaging).
 
 ## Report
