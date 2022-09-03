@@ -142,7 +142,7 @@ You are expected to learn how to use an oscilloscope in this class, so, please a
 
 Line trigger mode is very useful for identifying the presence of 60 Hz AC-coupled noise.
 
-![Figure 2.2a](./resources/images/figure_2.2a.png)
+![Figure 2.2a](resources/images/figure_2.2a.png)
 
 *Figure 2.2a. Analog voltage versus time measured with a real oscilloscope.*
 
@@ -158,7 +158,7 @@ In particular, you should:
 3. understand the meaning of the numerical measurements displayed
 4. be able to take screen shots of the waveforms like Figures 2.2b and 2.3b. With an 8-bit resolution the TExaS results will look almost perfect (just DC and no AC).
 
-![Figure 2.2b](./resources/images/figure_2.2b.png)
+![Figure 2.2b](resources/images/figure_2.2b.png)
 
 *Figure 2.2b. Analog voltage versus time measured with the TExaS oscilloscope.*
 
@@ -169,7 +169,7 @@ Use the TExaS analog scope to measure the analog input of your circuit. The peak
 
 #### Real Spectrum Analyzer
 
-![Figure 2.3a](./resources/images/figure_2.3a.png)
+![Figure 2.3a](resources/images/figure_2.3a.png)
 
 *Figure 2.3a. Analog voltage versus frequency measured with a real spectrum analyzer.*
 
@@ -181,7 +181,7 @@ Use an analog scope to measure amplitude versus frequency of the analog input of
 2. Run `main0` (which activates `TExaS_Init(SCOPE)`)
 3. Within TExaS' display you can measure a frequency spectrum
 
-![Figure 2.3b](./resources/images/figure_2.3b.png)
+![Figure 2.3b](resources/images/figure_2.3b.png)
 
 *Figure 2.3b. Analog voltage versus frequency measured with the TExaS spectrum analyzer.*
 
@@ -193,15 +193,15 @@ Use an analog scope to measure amplitude versus frequency of the analog input of
 #### Real Logic Analyzer
 You are expected to learn how to use a logic analyzer in this class, so, please ask your TA for a demonstration if you are unfamiliar with the features of the logic analyzers. Run `main3` and observe PF3 (Timer2A ISR), PF2 (Timer0A ISR) and PF1 (main). Measure P0, the interrupt period for the Timer0A (should be 1/125Hz). Measure T0, the time to complete the Timer0A ISR (should be about 10us with `ADC0_SAC_R=0`). The percentage time in Timer0A ISR is T0/P0. Measure P2, the interrupt period for the Timer2A (should be 1/1024Hz). Measure T2, the time to complete the Timer2A ISR (should be about 1us, depending on your `Jitter_Measure`). The percentage time in Timer2A ISR is T2/P2. The percentage time in the main program is therefore about 1-T0/P0-T2/P2.
 
-![Figure 2.4a](./resources/images/figure_2.4a.png)
+![Figure 2.4a](resources/images/figure_2.4a.png)
 
 *Figure 2.4a. Zoomed in view of the PF1 PF2 PF3 recording to see a) the main program does not run while the Timer0A ISR is running and b) the time to execute the Timer0A ISR is about 10us (most of this 10us occurs converting the ADC) This recording was taken with ADC0_SAC_R=0.*
 
-![Figure 2.5a](./resources/images/figure_2.5a.png)
+![Figure 2.5a](resources/images/figure_2.5a.png)
 
 *Figure 2.5a. Zoomed in view of the PF1 PF2 PF3 recording to see a) the main program does not run while the Timer2A ISR is running and b) the time to execute the Timer2A ISR is about 1us.*
 
-![Figure 2.6a](./resources/images/figure_2.6a.png)
+![Figure 2.6a](resources/images/figure_2.6a.png)
 
 *Figure 2.6a. Zoomed out view of the PF1 PF2 PF3 recording to see a) the Timer0A runs at 125 Hz, b) Timer2A runs at 1024 Hz, and c) most of the processor time is allocated to running the main program.*
 
@@ -211,7 +211,7 @@ Use the logic analyzer to measure the debugging profiles like Figures 2.4a and 2
 #### TExaS Logic Analyzer
 The TExaS logic analyzer sends 7-bit data at 10 kHz to the PC for plotting. Run `main4`, which selects the logic analyzer on Port F.  Notice the call to `TExaS_Init(LOGICANALYZERF)`. You do not have to make any hardware connections to utilize the logic analyzer. Since the priority of the TExaS interrupt is 5 (lower priority than the two ISRs in Lab 2), the triple toggles will always be seen as a single toggle. Observe PF3 (Timer2A ISR), PF2 (Timer0A ISR) and PF1 (main). Measure P0, the interrupt period for the Timer0A (should be 1/125Hz). The most accurate measurement of P0 is achieved by deriving it from F2, the frequency of channel 2 (PF2). P0 = 0.5/F2 (0.5/62.5 Hz=8ms in this figure). Assume T0, the time to complete the Timer0A ISR, is about 10us with `ADC0_SAC_R=0`. The percentage time in Timer0A ISR is T0/P0. Measure P2, the interrupt period for the Timer2A (should be 1/1024Hz). Similar, the most accurate measurement of P2 is achieved by deriving it from F3, the frequency of channel 3 (PF3). P2 = 0.5/F3 (0.5/511.6 Hz=0.977ms in this figure). The 0.5 in this equation results from the fact that each ISR toggles the output pin. Assume T2, the time to complete the Timer2A ISR, is about 1us. The percentage time in Timer2A ISR is T2/P2. The percentage time in the main program is therefore about 1 T0/P0-T2/P2. Notice the 10 kHz sampling rate of the TExaS logic analyzer cannot correctly capture the behavior of PF1.
 
-![Figure 2.4b](./resources/images/figure_2.4b.png)
+![Figure 2.4b](resources/images/figure_2.4b.png)
 
 *Figure 2.4b. Zoomed out view of the PF1 PF2  PF3 recording using the TExaS logic analyzer to see a) the Timer0A runs at 125 Hz, b) Timer2A runs at 1024 Hz, and c) most of the processor time is allocated to running the main program.*
 
@@ -236,7 +236,7 @@ To apply the Central Limit Theorem, we must assume the noise is random, the nois
 
 Connect the constant voltage to the ADC input and run `main3` or `main4`. Since the input voltage is constant, the expected result would be all ADC data to be the same. Noise causes the variability. Observe the PMF of the noise as the program varies `ADC0_SAC_R` from 0 to 6. If you debug your software in the simulator, you should see all ADC data values the same. So, debug this part on the real board. You are allowed to adjust DUMPBUFSIZE to vary the number of points collected. *If you compare two PMFs with the same SAC value, you will not get the same result because the noise is not stationary.*
 
-![Figure 2.5](./resources/images/figure_2.5.jpg)
+![Figure 2.5](resources/images/figure_2.5.jpg)
 
 *Figure 2.5. Photo of main3 output with a constant voltage applied to the analog input (SAC=0).*
 
@@ -250,7 +250,7 @@ One simple estimate of the ADC resolution is standard deviation. Place a constan
 
 The data in Figure 2.6 were collected with SAC=6. Conversely if the input were increased by only 0.5mV, the PMF distributions are not statistically different. For this data at SAC =6, we claim the ADC resolution is about 1mV. EE445L does not expect you collect data like Figure 2.6.
 
-![Figure 2.6](./resources/images/figure_2.6.png)
+![Figure 2.6](resources/images/figure_2.6.png)
 
 *Figure 2.6. Probability mass function measured on the TM4C123 ADC with 64-point averaging.*
 
