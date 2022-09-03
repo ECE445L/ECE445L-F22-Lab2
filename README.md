@@ -63,12 +63,18 @@ In this lab we will develop debugging techniques to experience fundamental conce
 0x00000D9C F0800002  EOR     r0,r0,#0x02
 0x00000DA0 491D      LDR     r1,[pc,#116] ; @0x00000E18
 0x00000DA2 6088      STR     r0,[r1,#0x08]
+
+
+
 ```
 
 </td>
 <td>
 
-
+```c
+while (RealTimeCount < 3000) {
+    PF1 ^= 0x02;
+```
 
 </td>
 </tr>
@@ -104,6 +110,9 @@ jitterVariable = (jitterVariable * 12345678) / 1234567;
 0x00000DBA F64031B8  MOVW    r1,#0xBB8
 0x00000DBE 4288      CMP     r0,r1
 0x00000DC0 D3EA      BCC     0x00000D98
+
+
+
 ```
 
 </td>
