@@ -55,20 +55,30 @@ In this lab we will develop debugging techniques to experience fundamental conce
 
 <table>
 <tr>
-<td><pre>
+<td>
+
+```asm
 0x00000D98 481F      LDR     r0,[pc,#124] ; @0x00000E18
 0x00000D9A 6880      LDR     r0,[r0,#0x08]
 0x00000D9C F0800002  EOR     r0,r0,#0x02
 0x00000DA0 491D      LDR     r1,[pc,#116] ; @0x00000E18
 0x00000DA2 6088      STR     r0,[r1,#0x08]
-</pre></td>
-<td><pre>
+```
+
+</td>
+<td>
+
+```c
 while (RealTimeCount < 3000) {
-    PF1 ^= 0x02; 
-</pre></td>
+    PF1 ^= 0x02;
+```
+
+</td>
 </tr>
 <tr>
-<td><pre>
+<td>
+
+```asm
 0x00000DA4 4812      LDR     r0,[pc,#72]  ; @0x00000DF0
 0x00000DA6 6800      LDR     r0,[r0,#0x00]
 0x00000DA8 491C      LDR     r1,[pc,#112] ; @0x00000E1C
@@ -77,25 +87,41 @@ while (RealTimeCount < 3000) {
 0x00000DAE FBB0F0F1  UDIV    r0,r0,r1
 0x00000DB2 490F      LDR     r1,[pc,#60]  ; @0x00000DF0
 0x00000DB4 6008      STR     r0,[r1,#0x00]
-</pre></td>
-<td><pre>
+```
+
+</td>
+<td>
+
+```c
 jitterVariable = (jitterVariable * 12345678) / 1234567; 
-</pre></td>
+```
+
+</td>
 </tr>
 <tr>
-<td><pre>
+<td>
+
+```asm
 0x00000DB6 4817      LDR     r0,[pc,#92]  ; @0x00000E14
 0x00000DB8 6800      LDR     r0,[r0,#0x00]
 0x00000DBA F64031B8  MOVW    r1,#0xBB8
 0x00000DBE 4288      CMP     r0,r1
 0x00000DC0 D3EA      BCC     0x00000D98
-</pre></td>
-<td><pre>
-} 
-</pre></td>
+```
+
+</td>
+<td>
+
+```c
+}
+```
+
+</td>
 </tr>
 <tr>
-<td><pre>
+<td>
+
+```asm
 0x00000DF0 0014      DCW     0x0014
 0x00000DF2 2000      DCW     0x2000
 0x00000E14 0000      DCW     0x0000
@@ -104,7 +130,9 @@ jitterVariable = (jitterVariable * 12345678) / 1234567;
 0x00000E1A 4002      DCW     0x4002
 0x00000E20 D687      DCW     0xD687
 0x00000E22 0012      DCW     0x0012
-</pre></td>
+```
+
+</td>
 </tr>
 </table>
 
