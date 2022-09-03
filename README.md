@@ -120,7 +120,7 @@ jitterVariable = (jitterVariable * 12345678) / 1234567;
 ### Setup
 Connect a constant analog voltage to an ADC input on PD3, PD2, PE2 or PB5. Edit the parameter for the call to `ADC0_InitSWTriggerSeq3` to specify your choice of channel. One option is to use a potentiometer, like Lab 8 in EE319K, Figure 2.1. Another option is to create 1.65V using two 10k resistors.
 
-![Figure 2.1](./resources/images/figure_2.1.png)
+![Figure 2.1](resources/images/figure_2.1.png)
 
 *Figure 2.1. Possible hardware connection to create an analog input.*
 
