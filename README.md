@@ -68,10 +68,7 @@ In this lab we will develop debugging techniques to experience fundamental conce
 </td>
 <td>
 
-```c
-while (RealTimeCount < 3000) {
-    PF1 ^= 0x02;
-```
+
 
 </td>
 </tr>
@@ -92,7 +89,9 @@ while (RealTimeCount < 3000) {
 </td>
 <td>
 
-
+```c
+jitterVariable = (jitterVariable * 12345678) / 1234567; 
+```
 
 </td>
 </tr>
