@@ -294,12 +294,6 @@ NMI_Handler
 ; for examination by a debugger.
 ;
 ;******************************************************************************
-HardFault_Handler\
-                PROC
-                EXPORT  HardFault_Handler         [WEAK]
-                B       .
-                ENDP
-
 MemManage_Handler\
                 PROC
                 EXPORT  MemManage_Handler         [WEAK]
@@ -450,6 +444,14 @@ IntDefaultHandler\
                 EXPORT  PWM1Fault_Handler         [WEAK]
                 EXPORT  USB0_Handler              [WEAK]
                 EXPORT  __aeabi_assert            [WEAK]
+                ; _ReportHardFault by default is an inf. loop.
+                ; Users can override _ReportHardFault to change the behavior.
+				; The implementation is a left as an exercise to the reader,
+				; but somewhere out there on the internets might have implemented
+				; something... *wink*
+                EXPORT  _ReportHardFault          [WEAK] 
+				EXPORT HardFault_Handler		  [WEAK]
+
 
 GPIOPortA_Handler
 GPIOPortB_Handler
@@ -566,6 +568,7 @@ PWM1Generator3_Handler
 PWM1Fault_Handler
 USB0_Handler
 __aeabi_assert
+_ReportHardFault
                 B       .
 
                 ENDP
@@ -636,6 +639,23 @@ WaitForInterrupt
         WFI
         BX     LR
 
+;*********** HardFault_Handler ************************
+; capture the stack trace for the assembly that just hardfaulted,
+; and go to the reporter to set up an indicator LED and print debug
+; output to UART.
+; inputs: none
+; outputs: none
+; Source: https://www.freertos.org/Debugging-Hard-Faults-On-Cortex-M-Microcontrollers.html
+;         https://github.com/ferenc-nemeth/arm-hard-fault-handler
+HardFault_Handler
+        MOV    R0, #4 ; Compiler V5 does not play nice with binary
+        TST    LR, R0
+        ITE    EQ
+        MRSEQ  R0, MSP
+        MRSNE  R0, PSP
+        MOV    R1, LR
+        B      _ReportHardFault
+		
 ;******************************************************************************
 ;
 ; The function expected of the C library startup code for defining the stack

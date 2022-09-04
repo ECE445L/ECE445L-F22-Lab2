@@ -7,7 +7,7 @@
  *    Feel free to edit this to match your specifications.
  *
  *    For this lab, the student must implement the following functions defined 
- *    in Dump.h: 
+ *    in inc/Dump.h: 
  *        - DumpInit
  *        - DumpCapture
  *        - DumpCount
@@ -18,8 +18,8 @@
  *        - JitterGet
  *     Feel free to modify the functions in this file as necessary.
  * 
- * @version 0.1
- * @date 2022-01-19 <REPLACE WITH DATE OF LAST REVISION>
+ * @version 0.2
+ * @date 2022-09-14 <REPLACE WITH DATE OF LAST REVISION>
  *
  * @copyright Copyright (c) 2022
  * @note Pinout:

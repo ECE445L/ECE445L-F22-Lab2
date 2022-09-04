@@ -7,8 +7,8 @@
  *    There are two primary methods:
  *       - DebugCapture will record data and time.
  *       - JitterMeasure will measure real time jitter.
- * @version 0.1
- * @date 2022-01-31 <REPLACE WITH DATE OF LAST REVISION>
+ * @version 0.2
+ * @date 2022-09-01 <REPLACE WITH DATE OF LAST REVISION>
  *
  * @copyright Copyright (c) 2022
  */
