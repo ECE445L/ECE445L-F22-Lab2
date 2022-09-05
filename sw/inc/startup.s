@@ -21,7 +21,7 @@
 ; 
 ; This is part of revision 2.2.0.295 of the EK-TM4C123GXL Firmware Package.
 ;
-; Modified by Matthew Yu (2021).
+; Modified by Matthew Yu (2022).
 ;
 ;******************************************************************************
 
