@@ -29,15 +29,15 @@ The typical explanation for the repo structure. Lab specific instructions can be
 
 ### 0.1 HW
 
-The HW folder should contain your schematic and board files for your PCB or circuits. In labs 1-5 and 10, you will be creating schematics for your circuit in EAGLE. A setup tutorial can be found [here](https://www.shawnvictor.net/autodesk-eagle.html).
+The `hw` folder should contain your schematic and board files for your PCB or circuits. In labs 1-5 and 10, you will be creating schematics for your circuit in EAGLE. A setup tutorial can be found [here](https://www.shawnvictor.net/autodesk-eagle.html).
 
 <br>
 
 ### 0.2 SW
 
-The SW folder should contain your application firmware and software written for the lab. The SW/inc folder contains firmware drivers written for you by Professor Valvano. Feel free to write your own (in fact, in some labs, you may be required to write your own).
+The `sw` folder should contain your application firmware and software written for the lab. The SW/inc folder contains firmware drivers written for you by Professor Valvano. Feel free to write your own (in fact, in some labs, you may be required to write your own).
 
-You can place any other source files in the SW/ folder. TAs will look at the files you create and/or modify for software quality and for running your project.
+You can place any other source files in the `sw/` folder. TAs will look at the files you create and/or modify for software quality and for running your project.
 
 <br>
 
