@@ -8,7 +8,8 @@
     4. [Git and Github](#04-git-and-github)
 1. [Summary](#1-summary)
     1. [Goal](#11-goal)
-    2. [Team Size](#12-team-size)
+    2. [Background](#12-background)
+    3. [Team Size](#13-team-size)
 2. [Preparation](#2-preparation)
     1. [Lab Prep Questions](#21-lab-prep-questions)
 3. [Procedure](#3-procedure)
@@ -74,7 +75,10 @@ You should understand the following concepts by the end of the lab:
 
 <br>
 
-### 1.2 Team Size
+### 1.2 Background
+In this lab we will develop debugging techniques to experience fundamental concepts of real time, critical sections, probability mass function (PMF), and the Central Limit Theorem (CLT). You should review real-time, time jitter, and critical sections from the book. Do an internet search of PMF and CLT. The object of this lab is to implement `Dump.c` and use it in subsequent labs to assist debugging
+
+### 1.3 Team Size
 
 The team size for this lab is 2.
 
