@@ -299,7 +299,7 @@ If using TExaS, the TExaS logic analyzer sends 7-bit data at 10 kHz to the PC fo
 ### 3.3 Debug `Dump.c` Functions and Prove the ADC Sampling is Real Time
 
 #### 3.3.1 Deliverable 5 
-Measure the time jitter with just Timer2A (`main1` or `main2`). Explain what caused the small but non-zero jitter. Why would you classify Timer2A by itself as real time? Measure the time jitter with two ISRs (`main3` or `main4`). Explain why Timer2A has a time jitter proportional to `2 * SAC`. Explain why the Timer0A jitter is close to zero. Why would you classify Timer0A as real time, but Timer2A is no longer real time?
+Measure the time jitter with just Timer2A (`main1` or `main2`). Explain what caused the small but non-zero jitter. Why would you classify Timer2A by itself as real time? Measure the time jitter with two ISRs (`main3` or `main4`). Explain why Timer2A has a time jitter proportional to `2 ^ SAC`. Explain why the Timer0A jitter is close to zero. Why would you classify Timer0A as real time, but Timer2A is no longer real time?
 
 *Note: when we get to Lab 9, we will use timer-triggered ADC sampling, so that even with hardware averaging, all ISRs will be real time.*
 
