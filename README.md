@@ -1,27 +1,37 @@
 # Lab 2 Performance Debugging
 
 ## Table of Contents
-0. [Repository Structure](#0-repository-structure)
-    1. [HW](#01-hw)
-    2. [SW](#02-sw)
-    3. [Resources](#03-resources)
-    4. [Git and Github](#04-git-and-github)
-1. [Summary](#1-summary)
-    1. [Goal](#11-goal)
-    2. [Background](#12-background)
-    3. [Team Size](#13-team-size)
-2. [Preparation](#2-preparation)
-    1. [Lab Prep Questions](#21-lab-prep-questions)
-3. [Procedure](#3-procedure)
-    1. [Setup](#31-setup)
-    2. [Using the Oscilloscope, Spectrum Analyzer, and Logic Analyzer](#32-using-the-oscilloscope,-spectrum-analyzer-and-logic-analyzer)
-    3. [Debug `Dump.c` Functions and Prove the ADC Sampling is Real Time](#33-debug-dumpc-functions-and-prove-the-adc-sampling-is-real-time)
-    4. [Evaluate Critical Sections](#34-evaluate-critical-sections)
-    5. [ADC Noise Measurements Using the Central Limit Theorem](#35-adc-noise-measurements-using-the-central-limit-theorem)
-    6. [Estimate the ADC Resolution](#36-estimate-the-adc-resolution)
-4. [Report](#4-report)
-    1. [Deliverables](#41-deliverables)
-    2. [Analysis and Discussion](#42-analysis-and-discussion-give-short-1-or-two-sentence-answers-to-these-questions) 
+- [Lab 2 Performance Debugging](#lab-2-performance-debugging)
+  - [Table of Contents](#table-of-contents)
+  - [0 Repository Structure](#0-repository-structure)
+    - [0.1 HW](#01-hw)
+    - [0.2 SW](#02-sw)
+    - [0.3 Resources](#03-resources)
+    - [0.4 Git and Github](#04-git-and-github)
+  - [1 Summary](#1-summary)
+    - [1.1 Goal](#11-goal)
+    - [1.2 Background](#12-background)
+    - [1.3 Team Size](#13-team-size)
+  - [2 Preparation](#2-preparation)
+    - [2.1 Lab Prep Questions](#21-lab-prep-questions)
+  - [3 Procedure](#3-procedure)
+    - [3.1 Setup](#31-setup)
+      - [3.1.1 Deliverable 1](#311-deliverable-1)
+    - [3.2 Using the Oscilloscope, Spectrum Analyzer, and Logic Analyzer](#32-using-the-oscilloscope-spectrum-analyzer-and-logic-analyzer)
+      - [3.2.1 Deliverable 2](#321-deliverable-2)
+      - [3.2.2 Deliverable 3 (optional)](#322-deliverable-3-optional)
+      - [3.2.3 Deliverable 4](#323-deliverable-4)
+    - [3.3 Debug `Dump.c` Functions and Prove the ADC Sampling is Real Time](#33-debug-dumpc-functions-and-prove-the-adc-sampling-is-real-time)
+      - [3.3.1 Deliverable 5](#331-deliverable-5)
+    - [3.4 Evaluate Critical Sections](#34-evaluate-critical-sections)
+      - [3.4.1 Deliverable 6](#341-deliverable-6)
+    - [3.5 ADC Noise Measurements Using the Central Limit Theorem](#35-adc-noise-measurements-using-the-central-limit-theorem)
+      - [3.5.1 Deliverable 7](#351-deliverable-7)
+    - [3.6 Estimate the ADC Resolution](#36-estimate-the-adc-resolution)
+      - [3.6.1 Deliverable 8](#361-deliverable-8)
+  - [4 Report](#4-report)
+    - [4.1 Deliverables](#41-deliverables)
+    - [4.2 Analysis and Discussion (give short 1 or two sentence answers to these questions)](#42-analysis-and-discussion-give-short-1-or-two-sentence-answers-to-these-questions)
 
 ---
 
@@ -37,7 +47,7 @@ The `hw` folder should contain your schematic and board files for your PCB or ci
 
 The `sw` folder should contain your application firmware and software written for the lab. The SW/inc folder contains firmware drivers written for you by Professor Valvano. Feel free to write your own (in fact, in some labs, you may be required to write your own).
 
-You can place any other source files in the `sw/` folder. TAs will look at the files you create and/or modify for software quality and for running your project.
+You can place any other source files in the `sw` folder. TAs will look at the files you create and/or modify for software quality and for running your project.
 
 ### 0.3 Resources
 
@@ -70,7 +80,9 @@ You should understand the following concepts by the end of the lab:
 - central limit theorem (CLT)
 
 ### 1.2 Background
-In this lab we will develop debugging techniques to experience fundamental concepts of real time, critical sections, probability mass function (PMF), and the Central Limit Theorem (CLT). You should review real-time, time jitter, and critical sections from the book. Do an internet search of PMF and CLT. The object of this lab is to implement `Dump.c` and use it in subsequent labs to assist debugging
+In this lab we will develop debugging techniques to experience fundamental concepts of real time, critical sections, probability mass function (PMF), and the Central Limit Theorem (CLT). You should review real-time, time jitter, and critical sections from the book. Do an internet search of PMF and CLT. The object of this lab is to implement `Dump.c` and use it in subsequent labs to assist debugging.
+
+Assume you have a periodic task that should run every Δt. Measure the time the actual task runs as ti. Calculate δi = (ti – ti-1) as the actual time differences between running the task. If the sampling were perfect, δi would equal Δt for all i. We define **jitter** as the maximum δi minus minimum δi.  If the sampling were perfect, jitter would be 0. Note: jitter is calculated in `main3` or `main4` for the ADC sampling. We did not ask it in Lab 2, but we could define **sampling accuracy** as maximum | Δt - δi | for all i.
 
 ### 1.3 Team Size
 
@@ -218,7 +230,7 @@ enum TExaSmode{
 
 3. If not using TExaS, hook up an oscilloscope and/or logic analyzer to the ADC input. Make sure hook up the ground reference probe as well.
 
-#### :exclamation::exclamation::exclamation: Deliverable 1 :exclamation::exclamation::exclamation: 
+#### 3.1.1 Deliverable 1 
 Draw the electrical circuit you used to create the analog input.
 
 ### 3.2 Using the Oscilloscope, Spectrum Analyzer, and Logic Analyzer
@@ -229,7 +241,7 @@ Provided are two tutorials on using TExaS:
 - [TExaS Oscilloscope and Spectrum Analyzer](https://youtu.be/fqm0zkr0_QA)
 - [TExaS Logic Analyzer](https://youtu.be/AVGbFRlGiXA)
 
-#### :exclamation::exclamation::exclamation: Deliverable 2 :exclamation::exclamation::exclamation:
+#### 3.2.1 Deliverable 2
 Use the oscilloscope to visualize and characterize the analog input of your circuit. In particular, capture and measure the noise of the signal. This can be done by measuring the AC RMS or peak-to-peak. Take a picture of the scope trace (screenshot or USB capture or phone picture) and add to the lab report.
 
 ![Figure 2](resources/images/figure_2.2a.png)
@@ -242,7 +254,7 @@ If using TExaS, an 8-bit analog signal on PD3 is sampled at 10 kHz and sent to t
 
 *Figure 2b. Analog voltage versus time measured with the TExaS oscilloscope.*
 
-#### :exclamation::exclamation::exclamation: Deliverable 3 :exclamation::exclamation::exclamation:
+#### 3.2.2 Deliverable 3 (optional)
 Use the spectrum analyzer to measure amplitude vs frequency of the analog input of your circuit. Take a picture of the scope trace (screenshot or USB capture or phone picture) and add to the lab report.
 
 ![Figure 3](resources/images/figure_2.3a.png)
@@ -255,7 +267,7 @@ If using TExaS, follow the instructions in the [TExaS Oscilloscope and Spectrum 
 
 *Figure 3b. Analog voltage versus frequency measured with the TExaS spectrum analyzer.*
 
-#### :exclamation::exclamation::exclamation: Deliverable 4 :exclamation::exclamation::exclamation:
+#### 3.2.3 Deliverable 4
 Run `main3` (or `main4` if using TExaS) and observe PF3 (Timer2A ISR), PF2 (Timer0A ISR) and PF1 (main). See further below for more details on TExaS.
 - Measure P0, the interrupt period for the Timer0A (should be 1/125Hz). 
 - Measure T0, the time to complete the Timer0A ISR (should be about 10us with `ADC0_SAC_R=0`). 
@@ -286,7 +298,7 @@ If using TExaS, the TExaS logic analyzer sends 7-bit data at 10 kHz to the PC fo
 
 ### 3.3 Debug `Dump.c` Functions and Prove the ADC Sampling is Real Time
 
-#### :exclamation::exclamation::exclamation: Deliverable 5 :exclamation::exclamation::exclamation: 
+#### 3.3.1 Deliverable 5 
 Measure the time jitter with just Timer2A (`main1` or `main2`). Explain what caused the small but non-zero jitter. Why would you classify Timer2A by itself as real time? Measure the time jitter with two ISRs (`main3` or `main4`). Explain why Timer2A has a time jitter proportional to `2 * SAC`. Explain why the Timer0A jitter is close to zero. Why would you classify Timer0A as real time, but Timer2A is no longer real time?
 
 *Note: when we get to Lab 9, we will use timer-triggered ADC sampling, so that even with hardware averaging, all ISRs will be real time.*
@@ -294,7 +306,7 @@ Measure the time jitter with just Timer2A (`main1` or `main2`). Explain what cau
 ### 3.4 Evaluate Critical Sections
 All three threads perform a read-modify-write access to Port F. Because of bit-specific addressing, these accesses are not critical. Change the accesses to use `GPIO_PORTF_DATA_R` instead of `PF1` `PF2` `PF3`, creating one or more critical sections. Critical sections create weird and unexpected behavior.
 
-#### :exclamation::exclamation::exclamation: Deliverable 6 :exclamation::exclamation::exclamation: 
+#### 3.4.1 Deliverable 6 
 Use any debugging technique to observe one instance of a critical section. Place the observation into your lab manual and explain the mistake the critical section created.
 
 ### 3.5 ADC Noise Measurements Using the Central Limit Theorem
@@ -306,7 +318,7 @@ Connect the constant voltage to the ADC input and run `main3` or `main4`. Since 
 
 *Figure 5. Photo of main3 output with a constant voltage applied to the analog input (SAC=0).*
 
-#### :exclamation::exclamation::exclamation: Deliverable 7 :exclamation::exclamation::exclamation: 
+#### 3.5.1 Deliverable 7 
 Take four photos of the LCD screen PMF, like Figure 5, for hardware averaging of none, 4x, 16x, and 64x. In each case the sampling rate is fixed and there are DUMPBUFSIZE data points used to plot the PMF function. Describe qualitatively the effect of hardware averaging on the noise process. Consider two issues 1) the shape of the PMF and 2) the signal to noise ratio. *Hint: CLT.*
 
 *Fun activity: noise can vary, so before you generalize from the data you collected in this lab, go around the lab room, and look at the data from other groups.*
@@ -320,7 +332,7 @@ The data in Figure 6 were collected with SAC=6. Conversely if the input were inc
 
 *Figure 6. Probability mass function measured on the TM4C123 ADC with 64-point averaging.*
 
-#### :exclamation::exclamation::exclamation: Deliverable 8 :exclamation::exclamation::exclamation: 
+#### 3.6.1 Deliverable 8 
 Estimate your ADC resolution with SAC=4 (16-point averaging).
 
 ---
@@ -329,9 +341,16 @@ Estimate your ADC resolution with SAC=4 (16-point averaging).
 
 ### 4.1 Deliverables
 1. Objectives (1/2 page maximum). Simply repeat the items shown in the Goals section
-2. Hardware Design (Deliverable 1)
-3. Software Design (Dump.c and Dump.h)
-4. Measurement Data (Deliverables 2,4-8) (3 is optional)
+2. Hardware Design ([Deliverable 1](#311-deliverable-1))
+3. Software Design (`Dump.c` and `Dump.h`)
+4. Measurement Data:
+    1. [Deliverable 2](#321-deliverable-2)
+    2. [Deliverable 3 (optional)](#322-deliverable-3-optional)
+    3. [Deliverable 4](#323-deliverable-4)
+    4. [Deliverable 5](#331-deliverable-5)
+    5. [Deliverable 6](#341-deliverable-6)
+    6. [Deliverable 7](#351-deliverable-7)
+    7. [Deliverable 8](#361-deliverable-8)
 
 ### 4.2 Analysis and Discussion (give short 1 or two sentence answers to these questions)
 1. The ISR toggles PF2 three times. Is this debugging intrusive, nonintrusive or minimally intrusive? Justify your answer.

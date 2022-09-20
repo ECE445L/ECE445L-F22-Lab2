@@ -1,659 +1,354 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<title>README.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
 }
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
-
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
-
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
-
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
-
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
-
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
-
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
-
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
-
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
-
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
-
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
-
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
 </head>
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
 <h1 id="lab-2-performance-debugging">Lab 2 Performance Debugging</h1>
 <h2 id="table-of-contents">Table of Contents</h2>
-<ol start="0">
-<li><a href="#0-repository-structure">Repository Structure</a>
-<ol>
-<li><a href="#01-hw">HW</a></li>
-<li><a href="#02-sw">SW</a></li>
-<li><a href="#03-resources">Resources</a></li>
-<li><a href="#04-git-and-github">Git and Github</a></li>
-</ol>
-</li>
-<li><a href="#1-summary">Summary</a>
-<ol>
-<li><a href="#11-goal">Goal</a></li>
-<li><a href="#12-team-size">Team Size</a></li>
-</ol>
-</li>
-<li><a href="#2-preparation">Preparation</a>
-<ol>
-<li><a href="#21-lab-prep-questions">Lab Prep Questions</a></li>
-</ol>
-</li>
-<li><a href="#3-procedure">Procedure</a>
-<ol>
-<li><a href="#31-setup">Setup</a></li>
-<li><a href="#32-using-the-oscilloscope,-spectrum-analyzer-and-logic-analyzer">Using the Oscilloscope, Spectrum Analyzer, and Logic Analyzer</a></li>
-<li><a href="#33-debug-dumpc-functions-and-prove-the-adc-sampling-is-real-time">Debug <code>Dump.c</code> Functions and Prove the ADC Sampling is Real Time</a></li>
-<li><a href="#34-evaluate-critical-sections">Evaluate Critical Sections</a></li>
-<li><a href="#35-adc-noise-measurements-using-the-central-limit-theorem">ADC Noise Measurements Using the Central Limit Theorem</a></li>
-<li><a href="#36-estimate-the-adc-resolution">Estimate the ADC Resolution</a></li>
-</ol>
-</li>
-<li><a href="#4-report">Report</a>
-<ol>
-<li><a href="#41-deliverables">Deliverables</a></li>
-<li><a href="#42-analysis-and-discussion-give-short-1-or-two-sentence-answers-to-these-questions">Analysis and Discussion</a></li>
-</ol>
-</li>
-</ol>
-<hr>
-<h2 id="0-repository-structure">0 Repository Structure</h2>
-<p>The typical explanation for the repo structure. Lab specific instructions can be found further below.</p>
-<h3 id="01-hw">0.1 HW</h3>
-<p>The HW folder should contain your schematic and board files for your PCB or circuits. In labs 1-5 and 10, you will be creating schematics for your circuit in EAGLE. A setup tutorial can be found <a href="https://www.shawnvictor.net/autodesk-eagle.html">here</a>.</p>
-<br>
-<h3 id="02-sw">0.2 SW</h3>
-<p>The SW folder should contain your application firmware and software written for the lab. The SW/inc folder contains firmware drivers written for you by Professor Valvano. Feel free to write your own (in fact, in some labs, you may be required to write your own).</p>
-<p>You can place any other source files in the SW/ folder. TAs will look at the files you create and/or modify for software quality and for running your project.</p>
-<br>
-<h3 id="03-resources">0.3 Resources</h3>
-<p>A couple files are provided in the Resources folder so you don't have to keep searching for that one TI document. Some of them are immediately useful, like the TM4C datasheet. Others may be useful for your final project, like the TM4C_System_Design_Guidelines page.</p>
-<br>
-<h3 id="04-git-and-github">0.4 Git and Github</h3>
-<p>We will extensively use Git and Github for managing lab projects. This makes it easier for TAs to grade and help debug the project by allowing us to see commit histories, maintain a common project structure, and
-Likewise, it makes it easier for students to collaborate with partners, merge different codebases, and to debug their work by having a history of commits.</p>
-<p>Two common ways of using Git and Github are <a href="https://desktop.github.com/">Github Desktop</a> and the <a href="https://git-scm.com/downloads">command line</a>. <a href="https://dev.to/mollynem/git-github--workflow-fundamentals-5496">Tutorials</a> are also abundant on the net for you to peruse. We've provided a cheatsheet for git in the Resources folder.</p>
-<p>It is highly recommended to make the most out of Git, even if you've never used it before. Version control will save you a lot of suffering, and tools like Git or SVN are ubiquitous in the industry.</p>
-<p>A gitignore file is added to the root of this repo that may prevent specific files from being tagged to the repo. This are typically autogenerated output files we don't care about, but sometimes other stuff (like .lib files) falls through that we want. Feel free to modify if necessary.</p>
-<hr>
-<h2 id="1-summary">1 Summary</h2>
-<h3 id="11-goal">1.1 Goal</h3>
-<p>In this lab we will introduce various debugging techniques. In particular we will look at how to use the oscilloscope, spectrum analyzer, and logic analyzer, and then learn how to profile code using dumps to measure intrusiveness and noise.</p>
-<p>You should understand the following concepts by the end of the lab:</p>
 <ul>
-<li>real-time systems</li>
-<li>time jitter</li>
-<li>critical sections</li>
-<li>bit banding and shared resources</li>
-<li>probability mass functions (PMF)</li>
-<li>central limit theorem (CLT)</li>
+<li><a href="#lab-2-performance-debugging">Lab 2 Performance Debugging</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#0-repository-structure">0 Repository Structure</a>
+<ul>
+<li><a href="#01-hw">0.1 HW</a></li>
+<li><a href="#02-sw">0.2 SW</a></li>
+<li><a href="#03-resources">0.3 Resources</a></li>
+<li><a href="#04-git-and-github">0.4 Git and Github</a></li>
+</ul></li>
+<li><a href="#1-summary">1 Summary</a>
+<ul>
+<li><a href="#11-goal">1.1 Goal</a></li>
+<li><a href="#12-background">1.2 Background</a></li>
+<li><a href="#13-team-size">1.3 Team Size</a></li>
+</ul></li>
+<li><a href="#2-preparation">2 Preparation</a>
+<ul>
+<li><a href="#21-lab-prep-questions">2.1 Lab Prep Questions</a></li>
+</ul></li>
+<li><a href="#3-procedure">3 Procedure</a>
+<ul>
+<li><a href="#31-setup">3.1 Setup</a>
+<ul>
+<li><a href="#311-deliverable-1">3.1.1 Deliverable 1</a></li>
+</ul></li>
+<li><a href="#32-using-the-oscilloscope-spectrum-analyzer-and-logic-analyzer">3.2 Using the Oscilloscope, Spectrum Analyzer, and Logic Analyzer</a>
+<ul>
+<li><a href="#321-deliverable-2">3.2.1 Deliverable 2</a></li>
+<li><a href="#322-deliverable-3-optional">3.2.2 Deliverable 3 (optional)</a></li>
+<li><a href="#323-deliverable-4">3.2.3 Deliverable 4</a></li>
+</ul></li>
+<li><a href="#33-debug-dumpc-functions-and-prove-the-adc-sampling-is-real-time">3.3 Debug <code>Dump.c</code> Functions and Prove the ADC Sampling is Real Time</a>
+<ul>
+<li><a href="#331-deliverable-5">3.3.1 Deliverable 5</a></li>
+</ul></li>
+<li><a href="#34-evaluate-critical-sections">3.4 Evaluate Critical Sections</a>
+<ul>
+<li><a href="#341-deliverable-6">3.4.1 Deliverable 6</a></li>
+</ul></li>
+<li><a href="#35-adc-noise-measurements-using-the-central-limit-theorem">3.5 ADC Noise Measurements Using the Central Limit Theorem</a>
+<ul>
+<li><a href="#351-deliverable-7">3.5.1 Deliverable 7</a></li>
+</ul></li>
+<li><a href="#36-estimate-the-adc-resolution">3.6 Estimate the ADC Resolution</a>
+<ul>
+<li><a href="#361-deliverable-8">3.6.1 Deliverable 8</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#4-report">4 Report</a>
+<ul>
+<li><a href="#41-deliverables">4.1 Deliverables</a></li>
+<li><a href="#42-analysis-and-discussion-give-short-1-or-two-sentence-answers-to-these-questions">4.2 Analysis and Discussion (give short 1 or two sentence answers to these questions)</a></li>
+</ul></li>
+</ul></li>
 </ul>
-<br>
-<h3 id="12-team-size">1.2 Team Size</h3>
+<hr />
+<h2 id="repository-structure">0 Repository Structure</h2>
+<p>The typical explanation for the repo structure. Lab specific instructions can be found further below.</p>
+<h3 id="hw">0.1 HW</h3>
+<p>The <code>hw</code> folder should contain your schematic and board files for your PCB or circuits. In labs 1-5 and 10, you will be creating schematics for your circuit in EAGLE. A setup tutorial can be found <a href="https://www.shawnvictor.net/autodesk-eagle.html">here</a>.</p>
+<h3 id="sw">0.2 SW</h3>
+<p>The <code>sw</code> folder should contain your application firmware and software written for the lab. The SW/inc folder contains firmware drivers written for you by Professor Valvano. Feel free to write your own (in fact, in some labs, you may be required to write your own).</p>
+<p>You can place any other source files in the <code>sw</code> folder. TAs will look at the files you create and/or modify for software quality and for running your project.</p>
+<h3 id="resources">0.3 Resources</h3>
+<p>A couple files are provided in the Resources folder so you don’t have to keep searching for that one TI document. Some of them are immediately useful, like the TM4C datasheet. Others may be useful for your final project, like the TM4C_System_Design_Guidelines page.</p>
+<h3 id="git-and-github">0.4 Git and Github</h3>
+<p>We will extensively use Git and Github for managing lab projects. This makes it easier for TAs to grade and help debug the project by allowing us to see commit histories, maintain a common project structure, and Likewise, it makes it easier for students to collaborate with partners, merge different codebases, and to debug their work by having a history of commits.</p>
+<p>Two common ways of using Git and Github are <a href="https://desktop.github.com/">Github Desktop</a> and the <a href="https://git-scm.com/downloads">command line</a>. <a href="https://dev.to/mollynem/git-github--workflow-fundamentals-5496">Tutorials</a> are also abundant on the net for you to peruse. We’ve provided a cheatsheet for git in the Resources folder.</p>
+<p>It is highly recommended to make the most out of Git, even if you’ve never used it before. Version control will save you a lot of suffering, and tools like Git or SVN are ubiquitous in the industry.</p>
+<p>A gitignore file is added to the root of this repo that may prevent specific files from being tagged to the repo. This are typically autogenerated output files we don’t care about, but sometimes other stuff (like .lib files) falls through that we want. Feel free to modify if necessary.</p>
+<hr />
+<h2 id="summary">1 Summary</h2>
+<h3 id="goal">1.1 Goal</h3>
+<p>In this lab we will introduce various debugging techniques. In particular we will look at how to use the oscilloscope, spectrum analyzer, and logic analyzer, and then learn how to profile code using dumps to measure intrusiveness and noise.</p>
+<p>You should understand the following concepts by the end of the lab: - real-time systems - time jitter - critical sections - bit banding and shared resources - probability mass functions (PMF) - central limit theorem (CLT)</p>
+<h3 id="background">1.2 Background</h3>
+<p>In this lab we will develop debugging techniques to experience fundamental concepts of real time, critical sections, probability mass function (PMF), and the Central Limit Theorem (CLT). You should review real-time, time jitter, and critical sections from the book. Do an internet search of PMF and CLT. The object of this lab is to implement <code>Dump.c</code> and use it in subsequent labs to assist debugging.</p>
+<p>Assume you have a periodic task that should run every Δt. Measure the time the actual task runs as ti. Calculate δi = (ti – ti-1) as the actual time differences between running the task. If the sampling were perfect, δi would equal Δt for all i. We define <strong>jitter</strong> as the maximum δi minus minimum δi. If the sampling were perfect, jitter would be 0. Note: jitter is calculated in <code>main3</code> or <code>main4</code> for the ADC sampling. We did not ask it in Lab 2, but we could define <strong>sampling accuracy</strong> as maximum | Δt - δi | for all i.</p>
+<h3 id="team-size">1.3 Team Size</h3>
 <p>The team size for this lab is 2.</p>
 <blockquote>
 <p>Two shall be the number thou shalt count, and the number of the counting shall be two. Three shalt thou not count, neither count thou one, excepting that thou then proceed to two. Four is right out.</p>
 </blockquote>
-<hr>
-<h2 id="2-preparation">2 Preparation</h2>
-<ol>
+<hr />
+<h2 id="preparation">2 Preparation</h2>
+<ol type="1">
 <li>Clone the GitHub repository:
 <ul>
 <li>If a GitHub classroom has been created, accept the assignment and clone the repository onto your local device. Push your edits to your private repository.</li>
-<li>If you're cloning from the public organization, clone the template. Submit a zip file containing the entire repository to Canvas.</li>
-</ul>
-</li>
+<li>If you’re cloning from the public organization, clone the template. Submit a zip file containing the entire repository to Canvas.</li>
+</ul></li>
 <li>Implement the functions defined in <code>Dump.h</code>. Feel free to change the API as you see fit.</li>
 <li>Debugging with the logic analyzer and oscilloscope:
-<ol>
+<ol type="1">
 <li>If you have access to a real logic analyzer and oscilloscope, you will use main programs <code>main1</code> and <code>main3</code> (which do not activate TExaS).</li>
 <li>If you <strong>do not</strong> have access to a real logic analyzer and oscilloscope, you will use main programs <code>main0</code>, <code>main2</code>, and <code>main4</code> (which will activate TExaS).</li>
 <li>Reading <code>TIMER1_TAR_R</code> will return the 32-bit current time in 12.5ns units. The timer counts down. To measure elapsed time, we read <code>TIMER1_TAR_R</code> at the start of the elapsed time measurement and read it again at the end of the elapsed time measurement. Next, we subtract the second measurement from the first. 12.5ns * 232 is 53 seconds. So, this approach will be valid for measuring elapsed times less than 53 seconds. The time measurement resolution is 12.5 ns.</li>
-</ol>
-</li>
+</ol></li>
 <li>The microcontroller is executing at 80 MHz. The following shows a small section of the C code and resulting assembly code generated by the compiler for the while loop in <code>main1</code> and <code>main2</code>.</li>
 </ol>
 <table>
 <tr>
 <td>
-<pre class="hljs"><code><div>0x00000D98 481F      LDR     r0,[pc,#124] ; @0x00000E18
-0x00000D9A 6880      LDR     r0,[r0,#0x08]
-0x00000D9C F0800002  EOR     r0,r0,#0x02
-0x00000DA0 491D      LDR     r1,[pc,#116] ; @0x00000E18
-0x00000DA2 6088      STR     r0,[r1,#0x08]
-</div></code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode asm"><code class="sourceCode fasm"><a class="sourceLine" id="cb1-1" title="1"><span class="bn">0x00000D98 </span>481F      LDR     r0,[pc,#<span class="dv">124</span>] <span class="co">; @0x00000E18</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="bn">0x00000D9A </span><span class="dv">6880</span>      LDR     r0,[r0,#<span class="bn">0x08</span>]</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="bn">0x00000D9C </span>F0800002  EOR     r0,r0,#<span class="bn">0x02</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="bn">0x00000DA0 </span>491D      LDR     r1,[pc,#<span class="dv">116</span>] <span class="co">; @0x00000E18</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="bn">0x00000DA2 </span><span class="dv">6088</span>      <span class="bu">STR</span>     r0,[r1,#<span class="bn">0x08</span>]</a></code></pre></div>
 </td>
 <td>
-<pre class="hljs"><code><div><span class="hljs-keyword">while</span> (RealTimeCount &lt; <span class="hljs-number">3000</span>) {
-    PF1 ^= <span class="hljs-number">0x02</span>;
-</div></code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">while</span> (RealTimeCount &lt; <span class="dv">3000</span>) {</a>
+<a class="sourceLine" id="cb2-2" title="2">    PF1 ^= <span class="bn">0x02</span>;</a></code></pre></div>
 </td>
 </tr>
 <tr>
 <td>
-<pre class="hljs"><code><div>0x00000DA4 4812      LDR     r0,[pc,#72]  ; @0x00000DF0
-0x00000DA6 6800      LDR     r0,[r0,#0x00]
-0x00000DA8 491C      LDR     r1,[pc,#112] ; @0x00000E1C
-0x00000DAA 4348      MULS    r0,r1,r0
-0x00000DAC 491C      LDR     r1,[pc,#112] ; @0x00000E20
-0x00000DAE FBB0F0F1  UDIV    r0,r0,r1
-0x00000DB2 490F      LDR     r1,[pc,#60]  ; @0x00000DF0
-0x00000DB4 6008      STR     r0,[r1,#0x00]
-</div></code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode asm"><code class="sourceCode fasm"><a class="sourceLine" id="cb3-1" title="1"><span class="bn">0x00000DA4 </span><span class="dv">4812</span>      LDR     r0,[pc,#<span class="dv">72</span>]  <span class="co">; @0x00000DF0</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="bn">0x00000DA6 </span><span class="dv">6800</span>      LDR     r0,[r0,#<span class="bn">0x00</span>]</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="bn">0x00000DA8 </span>491C      LDR     r1,[pc,#<span class="dv">112</span>] <span class="co">; @0x00000E1C</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="bn">0x00000DAA </span><span class="dv">4348</span>      MULS    r0,r1,r0</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="bn">0x00000DAC </span>491C      LDR     r1,[pc,#<span class="dv">112</span>] <span class="co">; @0x00000E20</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="bn">0x00000DAE </span>FBB0F0F1  UDIV    r0,r0,r1</a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="bn">0x00000DB2 </span>490F      LDR     r1,[pc,#<span class="dv">60</span>]  <span class="co">; @0x00000DF0</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="bn">0x00000DB4 </span><span class="dv">6008</span>      <span class="bu">STR</span>     r0,[r1,#<span class="bn">0x00</span>]</a></code></pre></div>
 </td>
 <td>
-<pre class="hljs"><code><div>jitterVariable = (jitterVariable * <span class="hljs-number">12345678</span>) / <span class="hljs-number">1234567</span>; 
-</div></code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb4-1" title="1">jitterVariable = (jitterVariable * <span class="dv">12345678</span>) / <span class="dv">1234567</span>; </a></code></pre></div>
 </td>
 </tr>
 <tr>
 <td>
-<pre class="hljs"><code><div>0x00000DB6 4817      LDR     r0,[pc,#92]  ; @0x00000E14
-0x00000DB8 6800      LDR     r0,[r0,#0x00]
-0x00000DBA F64031B8  MOVW    r1,#0xBB8
-0x00000DBE 4288      CMP     r0,r1
-0x00000DC0 D3EA      BCC     0x00000D98
-</div></code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode asm"><code class="sourceCode fasm"><a class="sourceLine" id="cb5-1" title="1"><span class="bn">0x00000DB6 </span><span class="dv">4817</span>      LDR     r0,[pc,#<span class="dv">92</span>]  <span class="co">; @0x00000E14</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="bn">0x00000DB8 </span><span class="dv">6800</span>      LDR     r0,[r0,#<span class="bn">0x00</span>]</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="bn">0x00000DBA </span>F64031B8  MOVW    r1,#<span class="bn">0xBB8</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="bn">0x00000DBE </span><span class="dv">4288</span>      <span class="bu">CMP</span>     r0,r1</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="bn">0x00000DC0 </span>D3EA      BCC<span class="bn">     0x00000D98</span></a></code></pre></div>
 </td>
 <td>
-<pre class="hljs"><code><div>}
-</div></code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb6-1" title="1">}</a></code></pre></div>
 </td>
 </tr>
 <tr>
 <td>
-<pre class="hljs"><code><div>0x00000DF0 0014      DCW     0x0014
-0x00000DF2 2000      DCW     0x2000
-0x00000E14 0000      DCW     0x0000
-0x00000E16 2000      DCW     0x2000
-0x00000E18 5000      DCW     0x5000
-0x00000E1A 4002      DCW     0x4002
-0x00000E20 D687      DCW     0xD687
-0x00000E22 0012      DCW     0x0012
-</div></code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode asm"><code class="sourceCode fasm"><a class="sourceLine" id="cb7-1" title="1"><span class="bn">0x00000DF0 </span><span class="dv">0014</span>      DCW<span class="bn">     0x0014</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="bn">0x00000DF2 </span><span class="dv">2000</span>      DCW<span class="bn">     0x2000</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="bn">0x00000E14 </span><span class="dv">0000</span>      DCW<span class="bn">     0x0000</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="bn">0x00000E16 </span><span class="dv">2000</span>      DCW<span class="bn">     0x2000</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="bn">0x00000E18 </span><span class="dv">5000</span>      DCW<span class="bn">     0x5000</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="bn">0x00000E1A </span><span class="dv">4002</span>      DCW<span class="bn">     0x4002</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="bn">0x00000E20 </span>D687      DCW     <span class="bn">0xD687</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="bn">0x00000E22 </span><span class="dv">0012</span>      DCW<span class="bn">     0x0012</span></a></code></pre></div>
 </td>
 </tr>
 </table>
 <p><em>Listing 1. Assembly Table.</em></p>
 <p><em>This assembly code was obtained by observing the assembly listing in the debugger. You may see different assembly on your machine because of differences in the compiler version or optimization settings. You are allowed to solve the preparation with either this assembly or the assembly you see on your computer.</em></p>
-<br>
-<h3 id="21-lab-prep-questions">2.1 Lab Prep Questions</h3>
-<ol>
+<h3 id="lab-prep-questions">2.1 Lab Prep Questions</h3>
+<ol type="1">
 <li>What are the purposes of the <code>DCW</code> statements? More specifically, what do these three constants mean: <code>0x20000014</code>, <code>0x40025000</code>, and <code>0x0012D687</code>?</li>
 <li>Look at Section 3.3.1 (page 32) of the data sheet <a href="http://users.ece.utexas.edu/~valvano/EE345L/Labs/Fall2011/CortexM4_TRM_r0p1.pdf">CortexM4_TRM_r0p1.pdf</a> and find which instructions in the above while loop take more than 3 cycles to execute. Assume P=3 for the <code>BCC</code> instruction because it must refill the pipeline if it branches.</li>
 <li>This while loop toggles PF1. Neglecting interrupts for this preparation question. Assuming assembly instructions take about 25 ns to execute, estimate how fast one cycle of the while loop would execute.</li>
 </ol>
-<hr>
-<h2 id="3-procedure">3 Procedure</h2>
-<h3 id="31-setup">3.1 Setup</h3>
-<ol>
+<hr />
+<h2 id="procedure">3 Procedure</h2>
+<h3 id="setup">3.1 Setup</h3>
+<ol type="1">
 <li>Connect a constant analog voltage to an ADC input on PD3, PD2, PE2 or PB5. One option is to use a potentiometer, like Lab 8 in EE319K, Figure 2.1. Another option is to create 1.65V using two 10k resistors.</li>
 </ol>
-<p><img src="resources/images/figure_2.1.png" alt="Figure 1"></p>
+<p><img src="resources/images/figure_2.1.png" alt="Figure 1" /></p>
 <p><em>Figure 1. Possible hardware connection to create an analog input.</em></p>
-<ol start="2">
+<ol start="2" type="1">
 <li>If using TExaS (and therefore mains <code>main/main0</code>, <code>main2</code>, and <code>main4</code>), edit the parameter for the call to <code>TExaS_Init</code> to specify your choice of channel.</li>
 </ol>
-<pre class="hljs"><code><div><span class="hljs-comment">// Parameters that can be passed into TExaS_Init based on HW configuration.</span>
-
-<span class="hljs-comment">// TExaS.h</span>
-<span class="hljs-keyword">enum</span> TExaSmode{
-  SCOPE, <span class="hljs-comment">// PD3</span>
-  SCOPE_PD2,
-  SCOPE_PE2,
-  SCOPE_PB5,
-  LOGICANALYZERA,
-  LOGICANALYZERB,
-  LOGICANALYZERC,
-  LOGICANALYZERE,
-  LOGICANALYZERF,
-  NONE
-};
-</div></code></pre>
-<ol start="3">
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// Parameters that can be passed into TExaS_Init based on HW configuration.</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">// TExaS.h</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">enum</span> TExaSmode{</a>
+<a class="sourceLine" id="cb8-5" title="5">  SCOPE, <span class="co">// PD3</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  SCOPE_PD2,</a>
+<a class="sourceLine" id="cb8-7" title="7">  SCOPE_PE2,</a>
+<a class="sourceLine" id="cb8-8" title="8">  SCOPE_PB5,</a>
+<a class="sourceLine" id="cb8-9" title="9">  LOGICANALYZERA,</a>
+<a class="sourceLine" id="cb8-10" title="10">  LOGICANALYZERB,</a>
+<a class="sourceLine" id="cb8-11" title="11">  LOGICANALYZERC,</a>
+<a class="sourceLine" id="cb8-12" title="12">  LOGICANALYZERE,</a>
+<a class="sourceLine" id="cb8-13" title="13">  LOGICANALYZERF,</a>
+<a class="sourceLine" id="cb8-14" title="14">  NONE</a>
+<a class="sourceLine" id="cb8-15" title="15">};</a></code></pre></div>
+<ol start="3" type="1">
 <li>If not using TExaS, hook up an oscilloscope and/or logic analyzer to the ADC input. Make sure hook up the ground reference probe as well.</li>
 </ol>
-<h4 id="exclamationexclamationexclamation-deliverable-1-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 1 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
+<h4 id="deliverable-1">3.1.1 Deliverable 1</h4>
 <p>Draw the electrical circuit you used to create the analog input.</p>
-<br>
-<h3 id="32-using-the-oscilloscope-spectrum-analyzer-and-logic-analyzer">3.2 Using the Oscilloscope, Spectrum Analyzer, and Logic Analyzer</h3>
+<h3 id="using-the-oscilloscope-spectrum-analyzer-and-logic-analyzer">3.2 Using the Oscilloscope, Spectrum Analyzer, and Logic Analyzer</h3>
 <p>You are expected to learn how to use these instruments in this class, so please ask your TA for a demonstration in lab if you are unfamiliar with them. You are provided the option to use the TM4C to emulate its own oscilloscope, spectrum analyzer, and logic analyzer through TExaS, with significant constraints on functionality and resolution.</p>
-<p>Provided are two tutorials on using TExaS:</p>
-<ul>
-<li><a href="https://youtu.be/fqm0zkr0_QA">TExaS Oscilloscope and Spectrum Analyzer</a></li>
-<li><a href="https://youtu.be/AVGbFRlGiXA">TExaS Logic Analyzer</a></li>
-</ul>
-<br>
-<h4 id="exclamationexclamationexclamation-deliverable-2-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 2 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
+<p>Provided are two tutorials on using TExaS: - <a href="https://youtu.be/fqm0zkr0_QA">TExaS Oscilloscope and Spectrum Analyzer</a> - <a href="https://youtu.be/AVGbFRlGiXA">TExaS Logic Analyzer</a></p>
+<h4 id="deliverable-2">3.2.1 Deliverable 2</h4>
 <p>Use the oscilloscope to visualize and characterize the analog input of your circuit. In particular, capture and measure the noise of the signal. This can be done by measuring the AC RMS or peak-to-peak. Take a picture of the scope trace (screenshot or USB capture or phone picture) and add to the lab report.</p>
-<p><img src="resources/images/figure_2.2a.png" alt="Figure 2"></p>
+<p><img src="resources/images/figure_2.2a.png" alt="Figure 2" /></p>
 <p><em>Figure 2. Analog voltage versus time measured with a real oscilloscope.</em></p>
 <p>If using TExaS, an 8-bit analog signal on PD3 is sampled at 10 kHz and sent to the PC for plotting. To use the scope, connect the analog input to PD3. Be careful to limit the voltage between 0 and 3.3V, because PD3 is an unbuffered TM4C123 analog input. Run <code>main0</code>, which activates <code>TExaS_Init(SCOPE)</code>.</p>
-<p><img src="resources/images/figure_2.2b.png" alt="Figure 2b"></p>
+<p><img src="resources/images/figure_2.2b.png" alt="Figure 2b" /></p>
 <p><em>Figure 2b. Analog voltage versus time measured with the TExaS oscilloscope.</em></p>
-<br>
-<h4 id="exclamationexclamationexclamation-deliverable-3-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 3 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
+<h4 id="deliverable-3-optional">3.2.2 Deliverable 3 (optional)</h4>
 <p>Use the spectrum analyzer to measure amplitude vs frequency of the analog input of your circuit. Take a picture of the scope trace (screenshot or USB capture or phone picture) and add to the lab report.</p>
-<p><img src="resources/images/figure_2.3a.png" alt="Figure 3"></p>
+<p><img src="resources/images/figure_2.3a.png" alt="Figure 3" /></p>
 <p><em>Figure 3. Analog voltage versus frequency measured with a real spectrum analyzer.</em></p>
 <p>If using TExaS, follow the instructions in the <a href="https://youtu.be/fqm0zkr0_QA">TExaS Oscilloscope and Spectrum Analyzer</a> video to select the spectrum analyzer from the view menu.</p>
-<p><img src="resources/images/figure_2.3b.png" alt="Figure 3b"></p>
+<p><img src="resources/images/figure_2.3b.png" alt="Figure 3b" /></p>
 <p><em>Figure 3b. Analog voltage versus frequency measured with the TExaS spectrum analyzer.</em></p>
-<br>
-<h4 id="exclamationexclamationexclamation-deliverable-4-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 4 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
-<p>Run <code>main3</code> (or <code>main4</code> if using TExaS) and observe PF3 (Timer2A ISR), PF2 (Timer0A ISR) and PF1 (main). See further below for more details on TExaS.</p>
-<ul>
-<li>Measure P0, the interrupt period for the Timer0A (should be 1/125Hz).</li>
-<li>Measure T0, the time to complete the Timer0A ISR (should be about 10us with <code>ADC0_SAC_R=0</code>).</li>
-<li>Calculate the Timer0A ISR utilization percentage. This is T0/P0.</li>
-<li>Measure P2, the interrupt period for the Timer2A (should be 1/1024Hz).</li>
-<li>Measure T2, the time to complete the Timer2A ISR (should be about 1us, depending on your <code>Jitter_Measure</code>).</li>
-<li>Calculate the Timer2A ISr utilization percentage. This is T2/P2.</li>
-<li>Calculate the total utilization percentage of the program. This is about 1-T0/P0-T2/P2.</li>
-<li>Also put some logic analyzer captures into the lab report.</li>
-</ul>
-<p><img src="resources/images/figure_2.4a.png" alt="Figure 4"></p>
+<h4 id="deliverable-4">3.2.3 Deliverable 4</h4>
+<p>Run <code>main3</code> (or <code>main4</code> if using TExaS) and observe PF3 (Timer2A ISR), PF2 (Timer0A ISR) and PF1 (main). See further below for more details on TExaS. - Measure P0, the interrupt period for the Timer0A (should be 1/125Hz). - Measure T0, the time to complete the Timer0A ISR (should be about 10us with <code>ADC0_SAC_R=0</code>). - Calculate the Timer0A ISR utilization percentage. This is T0/P0. - Measure P2, the interrupt period for the Timer2A (should be 1/1024Hz). - Measure T2, the time to complete the Timer2A ISR (should be about 1us, depending on your <code>Jitter_Measure</code>). - Calculate the Timer2A ISr utilization percentage. This is T2/P2. - Calculate the total utilization percentage of the program. This is about 1-T0/P0-T2/P2. - Also put some logic analyzer captures into the lab report.</p>
+<p><img src="resources/images/figure_2.4a.png" alt="Figure 4" /></p>
 <p><em>Figure 4. Zoomed in view of the PF1 PF2 PF3 recording to see a) the main program does not run while the Timer0A ISR is running and b) the time to execute the Timer0A ISR is about 10us (most of this 10us occurs converting the ADC) This recording was taken with ADC0_SAC_R=0.</em></p>
-<p><img src="resources/images/figure_2.5a.png" alt="Figure 4b"></p>
+<p><img src="resources/images/figure_2.5a.png" alt="Figure 4b" /></p>
 <p><em>Figure 4b. Zoomed in view of the PF1 PF2 PF3 recording to see a) the main program does not run while the Timer2A ISR is running and b) the time to execute the Timer2A ISR is about 1us.</em></p>
-<p><img src="resources/images/figure_2.6a.png" alt="Figure 4c"></p>
+<p><img src="resources/images/figure_2.6a.png" alt="Figure 4c" /></p>
 <p><em>Figure 4c. Zoomed out view of the PF1 PF2 PF3 recording to see a) the Timer0A runs at 125 Hz, b) Timer2A runs at 1024 Hz, and c) most of the processor time is allocated to running the main program.</em></p>
-<p>If using TExaS, the TExaS logic analyzer sends 7-bit data at 10 kHz to the PC for plotting. Run <code>main4</code>, which selects the logic analyzer on Port F.  Notice the call to <code>TExaS_Init(LOGICANALYZERF)</code>. You do not have to make any hardware connections to utilize the logic analyzer. Since the priority of the TExaS interrupt is 5 (lower priority than the two ISRs in Lab 2), the triple toggles will always be seen as a single toggle. Observe PF3 (Timer2A ISR), PF2 (Timer0A ISR) and PF1 (main). Measure P0, the interrupt period for the Timer0A (should be 1/125Hz). The most accurate measurement of P0 is achieved by deriving it from F2, the frequency of channel 2 (PF2). P0 = 0.5/F2 (0.5/62.5 Hz=8ms in this figure). Assume T0, the time to complete the Timer0A ISR, is about 10us with <code>ADC0_SAC_R=0</code>. The percentage time in Timer0A ISR is T0/P0. Measure P2, the interrupt period for the Timer2A (should be 1/1024Hz). Similar, the most accurate measurement of P2 is achieved by deriving it from F3, the frequency of channel 3 (PF3). P2 = 0.5/F3 (0.5/511.6 Hz=0.977ms in this figure). The 0.5 in this equation results from the fact that each ISR toggles the output pin. Assume T2, the time to complete the Timer2A ISR, is about 1us. The percentage time in Timer2A ISR is T2/P2. The percentage time in the main program is therefore about 1 T0/P0-T2/P2. Notice the 10 kHz sampling rate of the TExaS logic analyzer cannot correctly capture the behavior of PF1.</p>
-<p><img src="resources/images/figure_2.4b.png" alt="Figure 4d"></p>
-<p><em>Figure 4d. Zoomed out view of the PF1 PF2  PF3 recording using the TExaS logic analyzer to see a) the Timer0A runs at 125 Hz, b) Timer2A runs at 1024 Hz, and c) most of the processor time is allocated to running the main program.</em></p>
-<br>
-<h3 id="33-debug-dumpc-functions-and-prove-the-adc-sampling-is-real-time">3.3 Debug <code>Dump.c</code> Functions and Prove the ADC Sampling is Real Time</h3>
-<h4 id="exclamationexclamationexclamation-deliverable-5-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 5 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
+<p>If using TExaS, the TExaS logic analyzer sends 7-bit data at 10 kHz to the PC for plotting. Run <code>main4</code>, which selects the logic analyzer on Port F. Notice the call to <code>TExaS_Init(LOGICANALYZERF)</code>. You do not have to make any hardware connections to utilize the logic analyzer. Since the priority of the TExaS interrupt is 5 (lower priority than the two ISRs in Lab 2), the triple toggles will always be seen as a single toggle. Observe PF3 (Timer2A ISR), PF2 (Timer0A ISR) and PF1 (main). Measure P0, the interrupt period for the Timer0A (should be 1/125Hz). The most accurate measurement of P0 is achieved by deriving it from F2, the frequency of channel 2 (PF2). P0 = 0.5/F2 (0.5/62.5 Hz=8ms in this figure). Assume T0, the time to complete the Timer0A ISR, is about 10us with <code>ADC0_SAC_R=0</code>. The percentage time in Timer0A ISR is T0/P0. Measure P2, the interrupt period for the Timer2A (should be 1/1024Hz). Similar, the most accurate measurement of P2 is achieved by deriving it from F3, the frequency of channel 3 (PF3). P2 = 0.5/F3 (0.5/511.6 Hz=0.977ms in this figure). The 0.5 in this equation results from the fact that each ISR toggles the output pin. Assume T2, the time to complete the Timer2A ISR, is about 1us. The percentage time in Timer2A ISR is T2/P2. The percentage time in the main program is therefore about 1 T0/P0-T2/P2. Notice the 10 kHz sampling rate of the TExaS logic analyzer cannot correctly capture the behavior of PF1.</p>
+<p><img src="resources/images/figure_2.4b.png" alt="Figure 4d" /></p>
+<p><em>Figure 4d. Zoomed out view of the PF1 PF2 PF3 recording using the TExaS logic analyzer to see a) the Timer0A runs at 125 Hz, b) Timer2A runs at 1024 Hz, and c) most of the processor time is allocated to running the main program.</em></p>
+<h3 id="debug-dump.c-functions-and-prove-the-adc-sampling-is-real-time">3.3 Debug <code>Dump.c</code> Functions and Prove the ADC Sampling is Real Time</h3>
+<h4 id="deliverable-5">3.3.1 Deliverable 5</h4>
 <p>Measure the time jitter with just Timer2A (<code>main1</code> or <code>main2</code>). Explain what caused the small but non-zero jitter. Why would you classify Timer2A by itself as real time? Measure the time jitter with two ISRs (<code>main3</code> or <code>main4</code>). Explain why Timer2A has a time jitter proportional to <code>2 * SAC</code>. Explain why the Timer0A jitter is close to zero. Why would you classify Timer0A as real time, but Timer2A is no longer real time?</p>
 <p><em>Note: when we get to Lab 9, we will use timer-triggered ADC sampling, so that even with hardware averaging, all ISRs will be real time.</em></p>
-<br>
-<h3 id="34-evaluate-critical-sections">3.4 Evaluate Critical Sections</h3>
+<h3 id="evaluate-critical-sections">3.4 Evaluate Critical Sections</h3>
 <p>All three threads perform a read-modify-write access to Port F. Because of bit-specific addressing, these accesses are not critical. Change the accesses to use <code>GPIO_PORTF_DATA_R</code> instead of <code>PF1</code> <code>PF2</code> <code>PF3</code>, creating one or more critical sections. Critical sections create weird and unexpected behavior.</p>
-<h4 id="exclamationexclamationexclamation-deliverable-6-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 6 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
+<h4 id="deliverable-6">3.4.1 Deliverable 6</h4>
 <p>Use any debugging technique to observe one instance of a critical section. Place the observation into your lab manual and explain the mistake the critical section created.</p>
-<br>
-<h3 id="35-adc-noise-measurements-using-the-central-limit-theorem">3.5 ADC Noise Measurements Using the Central Limit Theorem</h3>
-<p>To apply the Central Limit Theorem, we must assume the noise is random, the noise in each sample is independent from the noise in the other samples, and the noise has zero mean. Look up the ADC Sample Averaging Control (<code>ADC0_SAC_R</code>) register in the Chapter 13 of the data sheet.  The Central Limit Theorem (CLT) states: as the number of samples increase, the calculated average (your data) will approach the theoretical mean (true signal). The CLT also states that regardless of the original probability density function (PDF) of the noise, the PDF of the averaged signal will become Gaussian.</p>
+<h3 id="adc-noise-measurements-using-the-central-limit-theorem">3.5 ADC Noise Measurements Using the Central Limit Theorem</h3>
+<p>To apply the Central Limit Theorem, we must assume the noise is random, the noise in each sample is independent from the noise in the other samples, and the noise has zero mean. Look up the ADC Sample Averaging Control (<code>ADC0_SAC_R</code>) register in the Chapter 13 of the data sheet. The Central Limit Theorem (CLT) states: as the number of samples increase, the calculated average (your data) will approach the theoretical mean (true signal). The CLT also states that regardless of the original probability density function (PDF) of the noise, the PDF of the averaged signal will become Gaussian.</p>
 <p>Connect the constant voltage to the ADC input and run <code>main3</code> or <code>main4</code>. Since the input voltage is constant, the expected result would be all ADC data to be the same. Noise causes the variability. Observe the PMF of the noise as the program varies <code>ADC0_SAC_R</code> from 0 to 6. If you debug your software in the simulator, you should see all ADC data values the same. So, debug this part on the real board. You are allowed to adjust DUMPBUFSIZE to vary the number of points collected. <em>If you compare two PMFs with the same SAC value, you will not get the same result because the noise is not stationary.</em></p>
-<p><img src="resources/images/figure_2.5.jpg" alt="Figure 5"></p>
+<p><img src="resources/images/figure_2.5.jpg" alt="Figure 5" /></p>
 <p><em>Figure 5. Photo of main3 output with a constant voltage applied to the analog input (SAC=0).</em></p>
-<h4 id="exclamationexclamationexclamation-deliverable-7-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 7 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
+<h4 id="deliverable-7">3.5.1 Deliverable 7</h4>
 <p>Take four photos of the LCD screen PMF, like Figure 5, for hardware averaging of none, 4x, 16x, and 64x. In each case the sampling rate is fixed and there are DUMPBUFSIZE data points used to plot the PMF function. Describe qualitatively the effect of hardware averaging on the noise process. Consider two issues 1) the shape of the PMF and 2) the signal to noise ratio. <em>Hint: CLT.</em></p>
 <p><em>Fun activity: noise can vary, so before you generalize from the data you collected in this lab, go around the lab room, and look at the data from other groups.</em></p>
-<br>
-<h3 id="36-estimate-the-adc-resolution">3.6 Estimate the ADC Resolution</h3>
+<h3 id="estimate-the-adc-resolution">3.6 Estimate the ADC Resolution</h3>
 <p>One simple estimate of the ADC resolution is standard deviation. Place a constant input on the ADC, sample the data multiple times and then calculate the standard deviation of the results. The data collected in Figure 6 shows the standard deviation of this data is about 3.23 samples. 3.23 samples are equivalent to 3.23*3.3/4096 ≈ 2.6mV. So, for SAC=0, we claim the ADC resolution is about 2.6mV.</p>
 <p>The data in Figure 6 were collected with SAC=6. Conversely if the input were increased by only 0.5mV, the PMF distributions are not statistically different. For this data at SAC=6, we claim the ADC resolution is about 1mV. ECE445L does not expect you collect data like Figure 6.</p>
-<p><img src="resources/images/figure_2.6.png" alt="Figure 6"></p>
+<p><img src="resources/images/figure_2.6.png" alt="Figure 6" /></p>
 <p><em>Figure 6. Probability mass function measured on the TM4C123 ADC with 64-point averaging.</em></p>
-<h4 id="exclamationexclamationexclamation-deliverable-8-exclamationexclamationexclamation"><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /> Deliverable 8 <img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /><img class="emoji" alt="exclamation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEXklEQVR42u2aTWhcZRSG3/Pda2aIk78WjQiBgi5KKDF04y4Igq1ShIKL4kLQhVtBQcGdILgviLhz6w910xIQ4ra67cJIaSZJZ5ppfiZD5ufOnbnfOcfFvZOO1cncLDLpfJkDd5c7k/vcc95zzvsNqSrOchic8RgBGAEYATjb4Z/UBz9eWPgqc+HCG97UVATm1K3GeJ5pbW3lzq+svD7UAPY3NuZnM5ml52dnocxAmnZLBAJQLRSGPwN2jPlT799/L1xdBaecNQgAEWHH8/DysAMwRHn2fdDYGLxj3CcAZIDD2YkBUJFC5HmQY9xDABhABNSHvgtEnrfNIlYAaMoLydsX1YfDD6BS2baq+5K82bQQGACrFocewNuqLSbatcd4eEkAOJEBAGCBDauaGoDG90CINoZeBAFAVfP8VI33E0GrCmbOOwFAgHVOUlvT/X2cAcCaEwAAbLaPAYDiFgiKopITAFikyMYARH0BmI4Iimi72Sy7kQHWFqzvp57skhIoX1MNnOgCVxqNkk3q+nDMPeKKADDRrlN+QFt1S1O2QlYFA+tOAVCRQtphiAFEqnmnADBQ5JR7QAJqoBngn3gGqG7aFK2wowGquukUAAusR10acBQAjjfBolsZAOTTTIOUlABZW3AKgIispzFGOovQu43GllMiGBLt9tsIKVZ/sGoJA44TB/B+rVZm1YD7GCPJGFxwDoCqqgXK/VohA7BERecAIHZ4Stzn7dsYVsFJABZYY9WeO4B2jJAB+gAD6wJJGawf5QzJkykw7yQAAdaiuBT+F8ChBohsuJkBxhStKoSo5wwQqSIEdtzUAOYidz1sDxFsLtfr+04CaNXrBdtDBPFECMs/qbKTAD5SrTEQ2B7DkI27wMCnwIEBSHaCR0YV/lPXc6pALI5rpwHAH9QXHajW6yL/Id7ZAhnYdRrAnsh3FWuXNPY9QF2iSEDmRd//9TQA0OiXomc8Tg3Az5cu5Z4FAAMtgduLi9fPT05+9tLMzIKXzU5EQVB5VKncrVarX1+7d++u0wBW5udvXTx37nrO97FfrUKiCH4mg+nJSZTDEA8qlW/eWl390kkAy3Nz31+cmPiY63X8vbf3r7NC3xgszs6inMmgUKt9+E6x+INTAJanp1/Jjo8/mAFQqNXgGwPTtRSJCATA3NQUSu1268r2dtYpEQxVPzDtNnbDEJ7ngZKj8kND1BgQEcpBAN/azC+53JtOAWipvta0FizS0xQlIkQiaDEjMuayWxlAlGknZdbvZDhURUt1wikAgepWiHSHo01VNAbsCp04gBrzrUpsePYsgaRUcKCKhupvTgH4otG4U2Z+WE40wHSBoK5/YEcE+yK3Pw8Ctw5HAeDA2qtN4K9QFS8Yg7HkwRVAE0BJBI9F9tpBcMPZSfDTbPZVNebHHNHlcSJ4iQ9QV0WgeidqNm98q1p3FkAnPslmrwrREhFNQ7UI5t9vttt/nIllaLQOjwCMAIwAjAA8Y/EPeqMRHQ+9uFUAAAAASUVORK5CYII=" /></h4>
+<h4 id="deliverable-8">3.6.1 Deliverable 8</h4>
 <p>Estimate your ADC resolution with SAC=4 (16-point averaging).</p>
-<hr>
-<h2 id="4-report">4 Report</h2>
-<h3 id="41-deliverables">4.1 Deliverables</h3>
-<ol>
+<hr />
+<h2 id="report">4 Report</h2>
+<h3 id="deliverables">4.1 Deliverables</h3>
+<ol type="1">
 <li>Objectives (1/2 page maximum). Simply repeat the items shown in the Goals section</li>
-<li>Hardware Design (Deliverable 1)</li>
-<li>Software Design (Dump.c and Dump.h)</li>
-<li>Measurement Data (Deliverables 2,4-8) (3 is optional)</li>
+<li>Hardware Design (<a href="#311-deliverable-1">Deliverable 1</a>)</li>
+<li>Software Design (<code>Dump.c</code> and <code>Dump.h</code>)</li>
+<li>Measurement Data:
+<ol type="1">
+<li><a href="#321-deliverable-2">Deliverable 2</a></li>
+<li><a href="#322-deliverable-3-optional">Deliverable 3 (optional)</a></li>
+<li><a href="#323-deliverable-4">Deliverable 4</a></li>
+<li><a href="#331-deliverable-5">Deliverable 5</a></li>
+<li><a href="#341-deliverable-6">Deliverable 6</a></li>
+<li><a href="#351-deliverable-7">Deliverable 7</a></li>
+<li><a href="#361-deliverable-8">Deliverable 8</a></li>
+</ol></li>
 </ol>
-<br>
-<h3 id="42-analysis-and-discussion-give-short-1-or-two-sentence-answers-to-these-questions">4.2 Analysis and Discussion (give short 1 or two sentence answers to these questions)</h3>
-<ol>
+<h3 id="analysis-and-discussion-give-short-1-or-two-sentence-answers-to-these-questions">4.2 Analysis and Discussion (give short 1 or two sentence answers to these questions)</h3>
+<ol type="1">
 <li>The ISR toggles PF2 three times. Is this debugging intrusive, nonintrusive or minimally intrusive? Justify your answer.</li>
 <li>In this lab we dumped strategic information into arrays and processed the arrays later. Notice this approach gives us similar information we could have generated with a printf statement. In what ways are printf statements better than dumps? In what ways are dumps better than printf statements?</li>
 <li>What are the necessary conditions for a critical section to occur? In other words, what type of software activities might result in a critical section?</li>
 <li>Define “minimally intrusive”.</li>
 <li>The PMF results should show hardware averaging is less noisy than not averaging. If it is so good, why don’t we always use it?</li>
 </ol>
-
 </body>
 </html>
