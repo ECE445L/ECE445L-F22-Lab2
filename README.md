@@ -77,7 +77,7 @@ You should understand the following concepts by the end of the lab:
 - critical sections
 - bit banding and shared resources
 - probability mass functions (PMF)
-- central limit theorem (CLT)
+- Central Limit Theorem (CLT)
 
 ### 1.2 Background
 In this lab we will develop debugging techniques to experience fundamental concepts of real time, critical sections, probability mass function (PMF), and the Central Limit Theorem (CLT). You should review real-time, time jitter, and critical sections from the book. Do an internet search of PMF and CLT. The object of this lab is to implement `Dump.c` and use it in subsequent labs to assist debugging.
@@ -310,7 +310,9 @@ All three threads perform a read-modify-write access to Port F. Because of bit-s
 Use any debugging technique to observe one instance of a critical section. Place the observation into your lab manual and explain the mistake the critical section created.
 
 ### 3.5 ADC Noise Measurements Using the Central Limit Theorem
-To apply the Central Limit Theorem, we must assume the noise is random, the noise in each sample is independent from the noise in the other samples, and the noise has zero mean. Look up the ADC Sample Averaging Control (`ADC0_SAC_R`) register in the Chapter 13 of the data sheet.  The Central Limit Theorem (CLT) states: as the number of samples increase, the calculated average (your data) will approach the theoretical mean (true signal). The CLT also states that regardless of the original probability density function (PDF) of the noise, the PDF of the averaged signal will become Gaussian.
+To apply the Central Limit Theorem, we must assume the noise is random, the noise in each sample is independent from the noise in the other samples, and the noise has zero mean. Look up the ADC Sample Averaging Control (`ADC0_SAC_R`) register in the Chapter 13 of the data sheet.  
+The [Central Limit Theorem, CLT] (https://en.wikipedia.org/wiki/Central_limit_theorem)
+states: as the number of samples increase, the calculated average (your data) will approach the theoretical mean (true signal). The CLT also states that regardless of the original probability density function (PDF) of the noise, the PDF of the averaged signal will become Gaussian.
 
 Connect the constant voltage to the ADC input and run `main3` or `main4`. Since the input voltage is constant, the expected result would be all ADC data to be the same. Noise causes the variability. Observe the PMF of the noise as the program varies `ADC0_SAC_R` from 0 to 6. If you debug your software in the simulator, you should see all ADC data values the same. So, debug this part on the real board. You are allowed to adjust DUMPBUFSIZE to vary the number of points collected. *If you compare two PMFs with the same SAC value, you will not get the same result because the noise is not stationary.*
 
