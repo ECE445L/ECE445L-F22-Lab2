@@ -311,7 +311,7 @@ Use any debugging technique to observe one instance of a critical section. Place
 
 ### 3.5 ADC Noise Measurements Using the Central Limit Theorem
 To apply the Central Limit Theorem, we must assume the noise is random, the noise in each sample is independent from the noise in the other samples, and the noise has zero mean. Look up the ADC Sample Averaging Control (`ADC0_SAC_R`) register in the Chapter 13 of the data sheet.  
-The [Central Limit Theorem, CLT] (https://en.wikipedia.org/wiki/Central_limit_theorem)
+The [Central Limit Theorem, CLT](https://en.wikipedia.org/wiki/Central_limit_theorem)
 states: as the number of samples increase, the calculated average (your data) will approach the theoretical mean (true signal). The CLT also states that regardless of the original probability density function (PDF) of the noise, the PDF of the averaged signal will become Gaussian.
 
 Connect the constant voltage to the ADC input and run `main3` or `main4`. Since the input voltage is constant, the expected result would be all ADC data to be the same. Noise causes the variability. Observe the PMF of the noise as the program varies `ADC0_SAC_R` from 0 to 6. If you debug your software in the simulator, you should see all ADC data values the same. So, debug this part on the real board. You are allowed to adjust DUMPBUFSIZE to vary the number of points collected. *If you compare two PMFs with the same SAC value, you will not get the same result because the noise is not stationary.*
