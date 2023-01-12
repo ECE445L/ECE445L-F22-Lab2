@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>Target 1</TargetName>
+      <TargetName>Lab 2</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pArmCC>6180000::V6.18::ARMCLANG</pArmCC>
@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>./</IncludePath>
+              <IncludePath>./..</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -386,54 +386,54 @@
           <GroupName>Code</GroupName>
           <Files>
             <File>
-              <FileName>Dump.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\inc\Dump.c</FilePath>
-            </File>
-            <File>
-              <FileName>TExaS.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\inc\TExaS.c</FilePath>
-            </File>
-            <File>
               <FileName>Lab2.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Lab2.c</FilePath>
             </File>
             <File>
-              <FileName>startup.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\inc\startup.s</FilePath>
-            </File>
-            <File>
-              <FileName>ST7735.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\inc\ST7735.c</FilePath>
-            </File>
-            <File>
-              <FileName>PLL.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\inc\PLL.c</FilePath>
-            </File>
-            <File>
               <FileName>ADCSWTrigger.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\inc\ADCSWTrigger.c</FilePath>
-            </File>
-            <File>
-              <FileName>LaunchPad.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\inc\LaunchPad.c</FilePath>
+              <FilePath>..\inc\ADCSWTrigger.c</FilePath>
             </File>
             <File>
               <FileName>Timer0A.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\inc\Timer0A.c</FilePath>
+              <FilePath>..\inc\Timer0A.c</FilePath>
             </File>
             <File>
               <FileName>Timer2A.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\inc\Timer2A.c</FilePath>
+              <FilePath>..\inc\Timer2A.c</FilePath>
+            </File>
+            <File>
+              <FileName>LaunchPad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\inc\LaunchPad.c</FilePath>
+            </File>
+            <File>
+              <FileName>PLL.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\inc\PLL.c</FilePath>
+            </File>
+            <File>
+              <FileName>ST7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\inc\ST7735.c</FilePath>
+            </File>
+            <File>
+              <FileName>Texas.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\inc\Texas.c</FilePath>
+            </File>
+            <File>
+              <FileName>Dump.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\inc\Dump.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\inc\startup.s</FilePath>
             </File>
           </Files>
         </Group>

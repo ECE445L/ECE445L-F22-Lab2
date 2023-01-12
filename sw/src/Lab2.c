@@ -68,7 +68,7 @@
 #include "./inc/CortexM.h"
 #include "./inc/LaunchPad.h"
 #include "./inc/Dump.h"
-#include "./inc/TExaS.h"
+#include "./inc/Texas.h"
 
 
 /** MMAP Pin definitions. */
@@ -132,7 +132,7 @@ uint32_t jitterVariable;    // global variable to calculate jitter
  */
 int main(void) {
     DisableInterrupts();
-    TExaS_Init(SCOPE);  // connect analog input to PD3
+    TExaS_Init(SCOPE, 80000000);  // connect analog input to PD3
     LaunchPad_Init();
     uint32_t count = 0;
     EnableInterrupts();
@@ -188,7 +188,7 @@ int main2(void) {
     DisableInterrupts();
     jitterVariable = 0;
 
-    TExaS_Init(LOGICANALYZERF);
+    TExaS_Init(LOGICANALYZER, 80000000);
     ST7735_InitR(INITR_REDTAB);
     ST7735_SetTextColor(ST7735_YELLOW);
 
@@ -329,7 +329,7 @@ int main4(void) {
     uint32_t* dataBuf;
     uint32_t* timeBuf;
 
-    TExaS_Init(LOGICANALYZERF);
+    TExaS_Init(LOGICANALYZER, 80000000);
     ST7735_InitR(INITR_REDTAB);
     ST7735_SetTextColor(ST7735_YELLOW);
 
