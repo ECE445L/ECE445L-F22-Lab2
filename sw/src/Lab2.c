@@ -452,13 +452,14 @@ void realTimeSampling(void) {
 
 uint32_t standardDeviation(uint32_t buffer[], uint32_t size) {
     int32_t sum = 0;
-    for (int i = 0; i < size; ++i) {
+    int32_t i;
+    for (i = 0; i < size; ++i) {
         sum = sum + FIXED * buffer[i];
     }
     int32_t ave = sum / size;
 
     sum = 0;
-    for (int i = 0; i < size; ++i) {
+    for (i = 0; i < size; ++i) {
         sum = sum + (FIXED * buffer[i] - ave) * (FIXED * buffer[i] - ave);
     }
     return sqrt(sum / (size - 1));  // units 1/FIXED
