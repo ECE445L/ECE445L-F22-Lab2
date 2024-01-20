@@ -111,6 +111,16 @@ void realTimeSampling(void);
 uint32_t standardDeviation(uint32_t buffer[], uint32_t size);
 
 /**
+ * @brief bufferAverage returns the average value of a buffer of
+ *        uint32_t values.
+ * 
+ * @param buffer The buffer to get the AVG from.
+ * @param size The size of the buffer.
+ * @return uint32_t AVG.
+ */
+uint32_t bufferAverage(uint32_t buffer[], uint32_t size);
+
+/**
  * @brief printStandardDeviation outputs the standard deviation to the ST7735
  * 
  * @param sigma 
@@ -130,7 +140,7 @@ uint32_t jitterVariable;    // global variable to calculate jitter
  * @brief main0 runs the TExaS oscilloscope
  *        analog scope on PD3, PD2, PE2 or PB5 using ADC1
  */
-int main(void) {
+int main0(void) {
     DisableInterrupts();
     TExaS_Init(SCOPE, 80000000);  // connect analog input to PD3
     LaunchPad_Init();
@@ -264,7 +274,7 @@ int main3(void) {
             histogram[i] = 0;  // clear
         }
 
-        center = dataBuf[0];
+        center = bufferAverage(dataBuf, DUMPBUFSIZE);
         for (i = 0; i < DUMPBUFSIZE; ++i) {
             data = dataBuf[i];
             if (data < center - 32) {
@@ -296,6 +306,7 @@ int main3(void) {
         ST7735_OutString("PF3 Jitter = ");
         ST7735_OutUDec(JitterGet());
         ST7735_PlotClear(0, DUMPBUFSIZE / 2);
+				
 
         for (i = 0; i < 63; ++i) {
             if (histogram[i] >= DUMPBUFSIZE / 2) {
@@ -309,6 +320,10 @@ int main3(void) {
         }
 
         printStandardDeviation(sigma);
+				ST7735_SetCursor(0, 4);
+				ST7735_OutString("a = ");
+				ST7735_OutUDec(center);
+				
         pause();
 
         if (sac < 6) {
@@ -367,7 +382,7 @@ int main4(void) {
             histogram[i] = 0;  // clear
         }
 
-        center = dataBuf[0];
+        center = bufferAverage(dataBuf, DUMPBUFSIZE);
         for (i = 0; i < DUMPBUFSIZE; ++i) {
             data = dataBuf[i];
             if (data < center - 32) {
@@ -403,6 +418,7 @@ int main4(void) {
         ST7735_OutString("PF3 Jitter = ");
         ST7735_OutUDec(JitterGet());
         ST7735_PlotClear(0, DUMPBUFSIZE / 2);
+				
 
         for (i = 0; i < 63; ++i) {
             if (histogram[i] >= DUMPBUFSIZE / 2) {
@@ -416,6 +432,10 @@ int main4(void) {
         }
 
         printStandardDeviation(sigma);
+				ST7735_SetCursor(0, 4);
+				ST7735_OutString("a = ");
+				ST7735_OutUDec(center);
+				
         pause();
 
         if (sac < 6) {
@@ -465,6 +485,19 @@ uint32_t standardDeviation(uint32_t buffer[], uint32_t size) {
     return sqrt(sum / (size - 1));  // units 1/FIXED
 }
 
+//Can overflow for large values or large buffers
+uint32_t bufferAverage(uint32_t buffer[], uint32_t size) {
+    uint32_t total = 0;
+		int32_t i;
+		if(size == 0) return 0;
+	
+		for(i = 0; i < size; ++i){
+			total += buffer[i]; 
+		}
+		
+		return total/size;
+}
+
 void printStandardDeviation(uint32_t sigma) {
     ST7735_SetCursor(0, 3);
     ST7735_OutString("s = ");
@@ -478,4 +511,12 @@ void printStandardDeviation(uint32_t sigma) {
         sigma = sigma % n;
         n = n / 10;
     }
+}
+
+int main(void){
+	//main0();
+	//main1();			//Jitter Measurement with only a single ISR
+	//main2();
+	main3();		//Jitter Measurement with Two ISRs
+	//main4();
 }
