@@ -514,9 +514,9 @@ void printStandardDeviation(uint32_t sigma) {
 }
 
 int main(void){
-	//main0();
-	//main1();			//Jitter Measurement with only a single ISR
+	//main0();		//TExaS Only Main
+	main1();			//Jitter Measurement with only a single ISR
 	//main2();
-	main3();		//Jitter Measurement with Two ISRs
+	//main3();		//Jitter Measurement with Two ISRs
 	//main4();
 }
